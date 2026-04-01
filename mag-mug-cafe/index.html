@@ -4,317 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mag Mug Cafe — Cafe in Nottingham</title>
-    <meta name="description" content="Mag Mug Cafe — Nottingham's Highly-Rated Cafe. 4.8 stars from 410 Google reviews. Based in Nottingham.">
+    <meta name="description" content="Mag Mug Cafe — Nottingham's Highly-Rated Cafe. 4.8 stars · 410 Google reviews · Nottingham.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; color:#2c1810; background:#fff9f5; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #2c1810;
-            background: #fff9f5;
-        }
+        /* ── PREVIEW BAR ─────────────────────────────── */
+        .preview-bar { background:#c8783a; padding:0.55rem 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; font-size:0.82rem; font-weight:600; color:#fff; position:relative; z-index:1100; }
+        .preview-bar a { background:#fff; color:#c8783a; padding:0.3rem 1rem; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.78rem; white-space:nowrap; transition:background .2s; }
+        .preview-bar a:hover { background:#fff9f5; }
 
-        /* ── HEADER ─────────────────────────────────── */
-        header {
-            position: sticky; top: 0;
-            background: #2c1810; z-index: 1000;
-            padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 3px 20px rgba(44,24,16,0.4);
-        }
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem; color: #f5c27f; font-weight: 700;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 50%;
-        }
-        nav { display: flex; gap: 1.8rem; }
-        nav a { color: #d4a76a; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color .3s; }
-        nav a:hover { color: #f5c27f; }
-        .reserve-btn {
-            background: #c8783a; color: white; padding: 0.65rem 1.6rem;
-            border: none; border-radius: 4px; font-weight: 600; cursor: pointer;
-            transition: all .3s; white-space: nowrap; font-size: 0.9rem; letter-spacing: .02em;
-        }
-        .reserve-btn:hover { background: #b5622a; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(200,120,58,.4); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .hamburger span { width: 25px; height: 3px; background: #f5c27f; border-radius: 2px; transition: all .3s; }
+        /* ── HEADER ──────────────────────────────────── */
+        header { position:sticky; top:0; background:rgba(44,24,16,0.97); backdrop-filter:blur(8px); z-index:1000; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; box-shadow:0 3px 20px rgba(44,24,16,.4); }
+        .logo { font-family:'Playfair Display',serif; font-size:1.4rem; color:#f5c27f; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:50%; }
+        nav { display:flex; gap:1.8rem; }
+        nav a { color:#d4a76a; text-decoration:none; font-weight:500; font-size:0.88rem; transition:color .3s; }
+        nav a:hover { color:#f5c27f; }
+        .reserve-btn { background:#c8783a; color:#fff; padding:0.6rem 1.5rem; border:none; border-radius:4px; font-weight:600; cursor:pointer; transition:all .3s; white-space:nowrap; font-size:0.85rem; }
+        .reserve-btn:hover { background:#b5622a; transform:translateY(-2px); box-shadow:0 5px 15px rgba(200,120,58,.4); }
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+        .hamburger span { width:25px; height:3px; background:#f5c27f; border-radius:2px; transition:all .3s; }
 
-        /* ── HERO ───────────────────────────────────── */
+        /* ── HERO ─────────────────────────────────────── */
         .hero {
-            background: linear-gradient(135deg, #3d1f10 0%, #5c2a0e 50%, #7a3812 100%);
-            padding: 5.5rem 2rem 4rem;
-            text-align: center; min-height: 520px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            position: relative; overflow: hidden;
-            animation: fadeInDown .8s ease-in;
+            min-height:100vh;
+            background: linear-gradient(to bottom, rgba(40,15,5,0.65) 0%, rgba(40,15,5,0.4) 50%, rgba(40,15,5,0.82) 100%),
+                        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display:flex; flex-direction:column; justify-content:center; align-items:center;
+            text-align:center; padding:6rem 2rem 4rem; position:relative;
         }
-        .hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            pointer-events: none;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .hero-eyebrow {
-            color: #f5c27f; font-size: 0.85rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: .12em;
-            margin-bottom: 1rem; position: relative;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem; color: white; font-weight: 800; line-height: 1.1;
-            margin-bottom: 0.6rem; position: relative;
-        }
-        .hero .tagline { font-size: 1.2rem; color: #d4a76a; margin-bottom: 1.4rem; font-style: italic; position: relative; }
+        .hero-eyebrow { color:#f5c27f; font-size:0.78rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; margin-bottom:1rem; }
+        .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,7vw,4.8rem); color:#fff; font-weight:800; line-height:1.05; margin-bottom:0.6rem; text-shadow:0 2px 25px rgba(0,0,0,.5); }
+        .hero .tagline { font-size:1.15rem; color:rgba(255,255,255,.85); margin-bottom:1.5rem; font-style:italic; max-width:540px; text-shadow:0 1px 8px rgba(0,0,0,.4); }
+        .hero-rating { display:inline-flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,.1); backdrop-filter:blur(6px); border:1px solid rgba(245,194,127,.35); border-radius:30px; padding:0.5rem 1.3rem; margin-bottom:1.8rem; font-size:0.92rem; color:#ddd; }
+        .hero-rating .g-logo { background:#4285F4; color:#fff; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:700; flex-shrink:0; }
+        .hero-rating .rating-val { color:#f5c27f; font-weight:700; font-size:1.05rem; }
+        .hero-rating .review-ct { color:rgba(255,255,255,.75); font-size:0.85rem; }
+        .stars-display .star.full  { color:#f5c27f; }
+        .stars-display .star.half  { color:#f5c27f; opacity:.6; }
+        .stars-display .star.empty { color:rgba(255,255,255,.3); }
+        .hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+        .btn { padding:0.9rem 2rem; border:none; border-radius:4px; font-size:0.95rem; font-weight:600; cursor:pointer; transition:all .3s; text-decoration:none; display:inline-block; }
+        .btn-primary { background:#c8783a; color:#fff; }
+        .btn-primary:hover { background:#b5622a; transform:translateY(-3px); box-shadow:0 8px 25px rgba(200,120,58,.5); }
+        .btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.45); }
+        .btn-secondary:hover { border-color:#f5c27f; color:#f5c27f; transform:translateY(-3px); }
+        .hero-scroll { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.4); font-size:1.4rem; animation:bounce 2s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-        .hero-rating {
-            display: inline-flex; align-items: center; gap: 0.6rem;
-            background: rgba(255,255,255,0.1); border: 1px solid rgba(245,194,127,.3);
-            border-radius: 30px; padding: 0.5rem 1.2rem;
-            margin-bottom: 1.8rem; font-size: 0.95rem; color: white; position: relative;
-        }
-        .hero-rating .g-logo {
-            background: #4285F4; color: white; border-radius: 50%;
-            width: 22px; height: 22px; display: inline-flex;
-            align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-        }
-        .hero-rating .rating-val { color: #f5c27f; font-size: 1.05rem; font-weight: 700; }
-        .hero-rating .review-ct { color: #c4a47a; font-size: 0.9rem; }
+        /* ── RATING STRIP ────────────────────────────── */
+        .rating-strip { background:#f5c27f; padding:0.85rem 2rem; }
+        .rating-strip-inner { display:flex; align-items:center; justify-content:center; gap:1.2rem; flex-wrap:wrap; max-width:900px; margin:0 auto; font-size:0.88rem; font-weight:700; color:#2c1810; }
+        .g-badge { background:#fff; color:#4285F4; border-radius:3px; padding:0.15rem 0.5rem; font-size:0.75rem; font-weight:700; }
+        .rating-strip .stars-display .star.full  { color:#c8783a; font-size:1rem; }
+        .rating-strip .stars-display .star.half  { color:#c8783a; opacity:.65; font-size:1rem; }
+        .rating-strip .stars-display .star.empty { color:rgba(44,24,16,.25); font-size:1rem; }
+        .rating-strip .rating-num { font-size:1.2rem; font-weight:700; color:#2c1810; }
+        .rating-strip .divider { color:rgba(44,24,16,.3); }
+        .rating-strip .city-note { color:#5a2d0c; }
 
-        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
-        .btn {
-            padding: 0.9rem 2rem; border: none; border-radius: 4px;
-            font-size: 1rem; font-weight: 600; cursor: pointer;
-            transition: all .3s; text-decoration: none; display: inline-block; letter-spacing: .02em;
-        }
-        .btn-primary { background: #c8783a; color: white; }
-        .btn-primary:hover { background: #b5622a; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(200,120,58,.5); }
-        .btn-secondary { background: transparent; color: white; border: 2px solid rgba(245,194,127,.5); }
-        .btn-secondary:hover { border-color: #f5c27f; background: rgba(245,194,127,.1); transform: translateY(-3px); }
+        /* ── CONTAINER ───────────────────────────────── */
+        .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        section { scroll-margin-top:80px; }
 
-        /* ── RATING STRIP ───────────────────────────── */
-        .rating-strip { background: #f5c27f; padding: 0.9rem 2rem; }
-        .rating-strip-inner {
-            display: flex; align-items: center; justify-content: center;
-            gap: 1.2rem; flex-wrap: wrap; max-width: 900px; margin: 0 auto;
-            font-size: 0.9rem; font-weight: 600; color: #2c1810;
-        }
-        .rating-strip .g-badge {
-            background: white; color: #4285F4;
-            border-radius: 4px; padding: 0.2rem 0.6rem;
-            font-weight: 700; font-size: 0.8rem;
-        }
-        .stars-display .star.full  { color: #c8783a; font-size: 1.05rem; }
-        .stars-display .star.half  { color: #c8783a; opacity: .65; font-size: 1.05rem; }
-        .stars-display .star.empty { color: rgba(44,24,16,.3); font-size: 1.05rem; }
-        .rating-strip .rating-num { font-size: 1.2rem; font-weight: 700; color: #2c1810; }
-        .rating-strip .divider { color: rgba(44,24,16,.3); }
-        .rating-strip .city-note { color: #5a2d0c; }
+        /* ── ABOUT ───────────────────────────────────── */
+        .about { padding:5rem 2rem; background:#fff; }
+        .about h2 { font-family:'Playfair Display',serif; font-size:2.4rem; margin-bottom:1.5rem; color:#2c1810; text-align:center; }
+        .about p { font-size:1.05rem; max-width:820px; margin:0 auto; color:#6b4c3b; line-height:1.85; text-align:center; }
 
-        /* ── CONTAINER ──────────────────────────────── */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        /* ── GALLERY ─────────────────────────────────── */
+        .gallery { padding:0; }
+        .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); height:300px; gap:4px; }
+        .gallery-item { background:#f0d8c4 center/cover no-repeat; transition:transform .4s; overflow:hidden; }
+        .gallery-item:hover { transform:scale(1.03); }
 
-        /* ── ABOUT ──────────────────────────────────── */
-        .about { padding: 4.5rem 2rem; background: white; }
-        .about h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem; margin-bottom: 1.5rem; color: #2c1810; text-align: center;
-        }
-        .about p { font-size: 1.05rem; max-width: 820px; margin: 0 auto; color: #6b4c3b; line-height: 1.85; text-align: center; }
+        /* ── MENU ────────────────────────────────────── */
+        .menu-section { padding:5rem 2rem; background:#fff9f5; }
+        .menu-section h2 { font-family:'Playfair Display',serif; font-size:2.4rem; text-align:center; margin-bottom:0.5rem; color:#2c1810; }
+        .section-sub { text-align:center; color:#9a6a50; margin-bottom:2.5rem; font-size:0.9rem; font-style:italic; }
+        .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; max-width:1100px; margin:0 auto; }
+        .service-card { background:#fff; padding:1.2rem 1.5rem; border-radius:6px; box-shadow:0 2px 8px rgba(44,24,16,.07); display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #f5e6d4; transition:all .3s; }
+        .service-card:hover { border-bottom-color:#c8783a; transform:translateY(-2px); box-shadow:0 6px 18px rgba(200,120,58,.12); }
+        .service-name { font-weight:500; color:#2c1810; font-size:0.92rem; }
+        .service-price { color:#c8783a; font-weight:700; font-size:1.05rem; white-space:nowrap; }
 
-        /* ── MENU ───────────────────────────────────── */
-        .menu-section { padding: 4.5rem 2rem; background: #fff9f5; }
-        .menu-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem; text-align: center; margin-bottom: 0.5rem; color: #2c1810;
-        }
-        .section-sub { text-align: center; color: #9a6a50; margin-bottom: 2.5rem; font-size: 0.95rem; font-style: italic; }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.2rem; max-width: 1100px; margin: 0 auto;
-        }
-        .service-card {
-            background: white; padding: 1.2rem 1.5rem; border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(44,24,16,.07);
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 2px solid #f5e6d4; transition: all .3s;
-        }
-        .service-card:hover { border-bottom-color: #c8783a; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(200,120,58,.12); }
-        .service-name { font-weight: 500; color: #2c1810; font-size: 0.95rem; }
-        .service-price { color: #c8783a; font-weight: 700; font-size: 1.05rem; white-space: nowrap; }
+        /* ── WHY CHOOSE ──────────────────────────────── */
+        .why-choose { padding:5rem 2rem; background:#fff; }
+        .why-choose h2 { font-family:'Playfair Display',serif; font-size:2.4rem; text-align:center; margin-bottom:2.5rem; color:#2c1810; }
+        .choose-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; }
+        .choose-card { text-align:center; padding:2rem 1.5rem; border-radius:8px; background:#fff9f5; border-top:3px solid #c8783a; transition:all .3s; }
+        .choose-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(200,120,58,.1); }
+        .choose-icon { font-size:2rem; margin-bottom:0.8rem; }
+        .choose-card h3 { font-size:1rem; font-weight:600; margin-bottom:0.5rem; color:#2c1810; }
+        .choose-card p { font-size:0.88rem; color:#9a6a50; line-height:1.6; }
 
-        /* ── WHY CHOOSE ─────────────────────────────── */
-        .why-choose { padding: 4.5rem 2rem; background: white; }
-        .why-choose h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem; text-align: center; margin-bottom: 2.5rem; color: #2c1810;
-        }
-        .choose-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
-        }
-        .choose-card {
-            text-align: center; padding: 2rem 1.5rem; border-radius: 8px;
-            background: #fff9f5; border-top: 3px solid #c8783a; transition: all .3s;
-        }
-        .choose-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(200,120,58,.1); }
-        .choose-icon { font-size: 2rem; margin-bottom: 0.8rem; }
-        .choose-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; color: #2c1810; }
-        .choose-card p { font-size: 0.9rem; color: #9a6a50; line-height: 1.6; }
+        /* ── REVIEWS ─────────────────────────────────── */
+        .testimonials { padding:5rem 2rem; background:#2c1810; }
+        .testimonials h2 { font-family:'Playfair Display',serif; font-size:2.4rem; text-align:center; margin-bottom:0.6rem; color:#fff; }
+        .google-rating-summary { display:flex; align-items:center; justify-content:center; gap:0.8rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+        .summary-score { font-size:3rem; font-weight:800; color:#fff; line-height:1; }
+        .summary-right { display:flex; flex-direction:column; gap:0.2rem; }
+        .summary-stars .star { font-size:1.4rem; }
+        .summary-stars .star.full  { color:#f5c27f; }
+        .summary-stars .star.empty { color:rgba(255,255,255,.2); }
+        .summary-count { font-size:0.85rem; color:#c4a47a; }
+        .summary-google { font-size:0.82rem; color:#8ab4f8; font-weight:600; }
+        .review-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto 2rem; }
+        .review-card { background:rgba(255,255,255,.06); border-radius:10px; padding:1.5rem; border:1px solid rgba(255,255,255,.1); transition:all .3s; }
+        .review-card:hover { background:rgba(255,255,255,.1); transform:translateY(-4px); }
+        .review-header { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.8rem; }
+        .reviewer-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.9rem; flex-shrink:0; }
+        .reviewer-info { flex:1; }
+        .reviewer-name { font-weight:600; font-size:0.92rem; color:#fff; }
+        .reviewer-stars { color:#f5c27f; font-size:0.82rem; letter-spacing:1px; }
+        .google-icon-small { background:#4285F4; color:#fff; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; flex-shrink:0; }
+        .review-text { font-size:0.9rem; color:#c4a47a; line-height:1.65; font-style:italic; }
+        .see-all-reviews { text-align:center; }
+        .see-all-btn { display:inline-flex; align-items:center; gap:0.5rem; background:transparent; border:2px solid #f5c27f; color:#f5c27f; padding:0.7rem 1.8rem; border-radius:4px; font-weight:600; text-decoration:none; font-size:0.9rem; transition:all .3s; }
+        .see-all-btn:hover { background:#f5c27f; color:#2c1810; transform:translateY(-2px); }
 
-        /* ── REVIEWS ────────────────────────────────── */
-        .testimonials { padding: 4.5rem 2rem; background: #2c1810; }
-        .testimonials h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem; text-align: center; margin-bottom: 0.6rem; color: white;
-        }
-        .google-rating-summary {
-            display: flex; align-items: center; justify-content: center;
-            gap: 0.8rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-        }
-        .summary-score { font-size: 3rem; font-weight: 800; color: white; line-height: 1; }
-        .summary-right { display: flex; flex-direction: column; gap: 0.2rem; }
-        .summary-stars .star { font-size: 1.4rem; }
-        .summary-stars .star.full  { color: #f5c27f; }
-        .summary-stars .star.empty { color: rgba(255,255,255,.2); }
-        .summary-count { font-size: 0.9rem; color: #c4a47a; }
-        .summary-google { font-size: 0.85rem; color: #8ab4f8; font-weight: 600; }
-        .review-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem; max-width: 1100px; margin: 0 auto 2rem;
-        }
-        .review-card {
-            background: rgba(255,255,255,0.06); border-radius: 12px; padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.1); transition: all .3s;
-        }
-        .review-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
-        .review-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
-        .reviewer-avatar {
-            width: 40px; height: 40px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
-        }
-        .reviewer-info { flex: 1; }
-        .reviewer-name { font-weight: 600; font-size: 0.95rem; color: white; }
-        .reviewer-stars { color: #f5c27f; font-size: 0.85rem; letter-spacing: 1px; }
-        .google-icon-small {
-            background: #4285F4; color: white; border-radius: 50%;
-            width: 24px; height: 24px; display: flex; align-items: center;
-            justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-        }
-        .review-text { font-size: 0.92rem; color: #c4a47a; line-height: 1.6; font-style: italic; }
-        .see-all-reviews { text-align: center; }
-        .see-all-btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: transparent; border: 2px solid #f5c27f; color: #f5c27f;
-            padding: 0.7rem 1.8rem; border-radius: 4px; font-weight: 600;
-            text-decoration: none; font-size: 0.95rem; transition: all .3s;
-        }
-        .see-all-btn:hover { background: #f5c27f; color: #2c1810; transform: translateY(-2px); }
+        /* ── BOOKING ──────────────────────────────────── */
+        .booking { padding:5rem 2rem; background:#fff; }
+        .booking h2 { font-family:'Playfair Display',serif; font-size:2.4rem; text-align:center; margin-bottom:2.5rem; color:#2c1810; }
+        .booking-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:1000px; margin:0 auto; }
+        .booking-form { display:flex; flex-direction:column; gap:1.2rem; }
+        .form-group { display:flex; flex-direction:column; gap:0.35rem; }
+        .form-group label { font-weight:500; color:#6b4c3b; font-size:0.88rem; }
+        .form-group input, .form-group textarea { padding:0.75rem 1rem; border:1.5px solid #f0d8c4; border-radius:6px; font-size:0.95rem; font-family:'Inter',sans-serif; transition:border-color .3s; }
+        .form-group input:focus, .form-group textarea:focus { outline:none; border-color:#c8783a; }
+        .form-group textarea { min-height:110px; resize:vertical; }
+        .booking-info { display:flex; flex-direction:column; gap:1.5rem; }
+        .info-block { border-left:3px solid #c8783a; padding-left:1rem; }
+        .info-label { font-weight:700; color:#c8783a; font-size:0.75rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:0.25rem; }
+        .info-value { color:#2c1810; font-size:0.92rem; line-height:1.55; }
+        .info-value a { color:#c8783a; text-decoration:none; }
+        .info-value a:hover { text-decoration:underline; }
+        .maps-link { display:inline-flex; align-items:center; gap:0.4rem; color:#4285F4; text-decoration:none; font-size:0.85rem; font-weight:500; margin-top:0.3rem; }
+        .maps-link:hover { text-decoration:underline; }
 
-        /* ── BOOKING ────────────────────────────────── */
-        .booking { padding: 4.5rem 2rem; background: white; }
-        .booking h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem; text-align: center; margin-bottom: 2.5rem; color: #2c1810;
-        }
-        .booking-wrapper {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 3rem; max-width: 1000px; margin: 0 auto;
-        }
-        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; }
-        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-        .form-group label { font-weight: 500; color: #6b4c3b; font-size: 0.9rem; }
-        .form-group input, .form-group textarea {
-            padding: 0.75rem 1rem; border: 1.5px solid #f0d8c4; border-radius: 6px;
-            font-size: 1rem; font-family: 'Inter', sans-serif; transition: border-color .3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #c8783a; }
-        .form-group textarea { min-height: 110px; resize: vertical; }
-        .booking-info { display: flex; flex-direction: column; gap: 1.5rem; }
-        .info-block { border-left: 3px solid #c8783a; padding-left: 1rem; }
-        .info-label { font-weight: 700; color: #c8783a; font-size: 0.8rem; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 0.25rem; }
-        .info-value { color: #2c1810; font-size: 0.95rem; line-height: 1.5; }
-        .info-value a { color: #c8783a; text-decoration: none; }
-        .info-value a:hover { text-decoration: underline; }
-        .maps-link {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            color: #4285F4; text-decoration: none; font-size: 0.9rem; font-weight: 500; margin-top: 0.3rem;
-        }
-        .maps-link:hover { text-decoration: underline; }
+        /* ── CLAIM CTA ───────────────────────────────── */
+        .claim-section { background:#3d1f10; border-top:3px solid #f5c27f; padding:3rem 2rem; text-align:center; }
+        .claim-section h3 { font-family:'Playfair Display',serif; font-size:1.8rem; color:#fff; margin-bottom:0.6rem; }
+        .claim-section p { color:#c4a47a; font-size:0.95rem; margin-bottom:1.5rem; max-width:480px; margin-left:auto; margin-right:auto; }
+        .claim-btn { display:inline-flex; align-items:center; gap:0.6rem; background:#f5c27f; color:#2c1810; padding:0.9rem 2.5rem; border-radius:4px; font-weight:700; text-decoration:none; font-size:0.9rem; transition:all .3s; }
+        .claim-btn:hover { background:#ffd480; transform:translateY(-3px); box-shadow:0 8px 25px rgba(245,194,127,.4); }
 
-        /* ── FOOTER ─────────────────────────────────── */
-        footer {
-            background: #1a0f08; color: #8b6a50;
-            padding: 2.5rem 2rem; text-align: center;
-        }
-        .footer-content { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #f5c27f; font-weight: 700; }
-        footer p { font-size: 0.85rem; }
-        .footer-credit { color: #4a2c1c; font-size: 0.8rem; }
+        /* ── FOOTER ──────────────────────────────────── */
+        footer { background:#1a0f08; color:#6b4c3b; padding:2rem 2rem; text-align:center; }
+        .footer-content { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
+        .footer-logo { font-family:'Playfair Display',serif; font-size:1.3rem; color:#f5c27f; font-weight:700; }
+        footer p { font-size:0.82rem; }
 
-        /* ── RESPONSIVE ─────────────────────────────── */
-        @media (max-width: 768px) {
-            nav { display: none; position: absolute; top: 100%; left: 0; right: 0;
-                  background: #2c1810; flex-direction: column; padding: 1rem 2rem; gap: 1rem;
-                  box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-            nav.active { display: flex; }
-            .hamburger { display: flex; }
-            .reserve-btn { display: none; }
-            .hero h1 { font-size: 2rem; }
-            .hero .tagline { font-size: 1rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 300px; text-align: center; }
-            .booking-wrapper { grid-template-columns: 1fr; }
-            .service-card { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width:768px) {
+            nav { display:none; position:absolute; top:100%; left:0; right:0; background:#2c1810; flex-direction:column; padding:1rem 2rem; gap:1rem; box-shadow:0 10px 20px rgba(0,0,0,.3); }
+            nav.active { display:flex; }
+            .hamburger { display:flex; }
+            .reserve-btn { display:none; }
+            .hero h1 { font-size:2rem; }
+            .hero-buttons { flex-direction:column; align-items:center; }
+            .btn { width:100%; max-width:300px; text-align:center; }
+            .booking-wrapper { grid-template-columns:1fr; }
+            .gallery-grid { height:160px; }
+            .service-card { flex-direction:column; align-items:flex-start; gap:0.3rem; }
         }
 
-        /* ── ANIMATIONS ─────────────────────────────── */
-        .fade-in { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* ── ANIMATIONS ──────────────────────────────── */
+        .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Preview Bar -->
+    <div class="preview-bar">
+        <span>&#10024; This website was built for <strong>Mag Mug Cafe</strong> &mdash; free preview by WebCraft UK</span>
+        <a href="mailto:hello@webcraftuk.co.uk?subject=I%27d%20like%20my%20website%20%E2%80%94%20Mag%20Mug%20Cafe&body=Hi%20WebCraft%20UK%2C%0A%0AI%27ve%20seen%20my%20preview%20website%20and%20I%27m%20interested%20in%20getting%20it%20live.%0A%0AMy%20business%3A%20Mag%20Mug%20Cafe%0ALocation%3A%20Nottingham%0A%0APlease%20get%20in%20touch.">Claim This Website &rarr;</a>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="logo">Mag Mug Cafe</div>
         <nav id="nav-menu">
             <a href="#about">About</a>
             <a href="#menu">Menu</a>
             <a href="#reviews">Reviews</a>
-            <a href="#booking">Find Us</a>
+            <a href="#contact">Find Us</a>
         </nav>
-        <button class="reserve-btn" onclick="scrollToSection('booking')">Reserve a Table</button>
-        <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </div>
+        <button class="reserve-btn" onclick="scrollToSection('contact')">Reserve a Table</button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </header>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-eyebrow">Nottingham &middot; Cafe</div>
         <h1>Mag Mug Cafe</h1>
         <p class="tagline">Nottingham's Highly-Rated Cafe</p>
-
         <div class="hero-rating">
             <span class="g-logo">G</span>
             <span class="rating-val">4.8</span>
             <span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star half">★</span></span>
             <span class="review-ct">410 Google reviews</span>
         </div>
-
         <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="scrollToSection('booking')">Find Us &amp; Reserve</button>
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">Find Us &amp; Reserve</button>
             <button class="btn btn-secondary" onclick="scrollToSection('menu')">View Menu</button>
         </div>
+        <div class="hero-scroll">&#8595;</div>
     </section>
 
     <!-- Rating Strip -->
@@ -334,9 +232,18 @@
     <section class="about" id="about">
         <div class="container">
             <h2>Our Story</h2>
-            <p>Welcome to Mag Mug Cafe — Nottingham's favourite cafe. With a 4.8-star Google rating from 410 verified reviews, we've built a reputation for exceptional food, warm hospitality, and an atmosphere that keeps our guests coming back time and again. We take real pride in sourcing quality ingredients and preparing every dish with care and skill. From a quick lunch to a special occasion, we'd love to welcome you.</p>
+            <p>Welcome to Mag Mug Cafe — Nottingham's favourite cafe. With a 4.8-star Google rating from 410 verified reviews, we've built a reputation for exceptional food, warm hospitality, and an atmosphere that keeps our guests coming back. We take real pride in sourcing quality ingredients and preparing every dish with care and skill. From a quick lunch to a special occasion, we'd love to welcome you.</p>
         </div>
     </section>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1511920183353-b3f17a7d2ef1?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+        </div>
+    </div>
 
     <!-- Menu -->
     <section class="menu-section" id="menu">
@@ -344,35 +251,17 @@
             <h2>Menu Highlights</h2>
             <p class="section-sub">A taste of what awaits &mdash; ask us about today's specials.</p>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-name">Flat White</div>
-                    <div class="service-price">£3.20</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Full English Breakfast</div>
-                    <div class="service-price">£9</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Club Sandwich</div>
-                    <div class="service-price">£8</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Homemade Cake Slice</div>
-                    <div class="service-price">£3.50</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Specialty Coffee</div>
-                    <div class="service-price">£4</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Brunch Platter</div>
-                    <div class="service-price">£12</div>
-                </div>
+                <div class="service-card fade-in"><div class="service-name">Flat White</div><div class="service-price">£3.20</div></div>
+                <div class="service-card fade-in"><div class="service-name">Full English Breakfast</div><div class="service-price">£9</div></div>
+                <div class="service-card fade-in"><div class="service-name">Club Sandwich</div><div class="service-price">£8</div></div>
+                <div class="service-card fade-in"><div class="service-name">Homemade Cake Slice</div><div class="service-price">£3.50</div></div>
+                <div class="service-card fade-in"><div class="service-name">Specialty Coffee</div><div class="service-price">£4</div></div>
+                <div class="service-card fade-in"><div class="service-name">Brunch Platter</div><div class="service-price">£12</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
+    <!-- Why Choose -->
     <section class="why-choose" id="why-us">
         <div class="container">
             <h2>Why Mag Mug Cafe?</h2>
@@ -385,7 +274,7 @@
                 <div class="choose-card fade-in">
                     <div class="choose-icon">&#128104;&#8205;&#127859;</div>
                     <h3>Passionate About Food</h3>
-                    <p>Every dish is prepared with care, quality ingredients, and a genuine love of great food. You can taste the difference.</p>
+                    <p>Every dish prepared with care, quality ingredients, and a genuine love of great food. You can taste the difference.</p>
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">&#128205;</div>
@@ -395,7 +284,7 @@
                 <div class="choose-card fade-in">
                     <div class="choose-icon">&#127807;</div>
                     <h3>Fresh Ingredients</h3>
-                    <p>We source quality ingredients and prepare everything with the care and attention it deserves. No shortcuts, ever.</p>
+                    <p>Quality sourcing and careful preparation — no shortcuts, ever. Everything is made with the attention it deserves.</p>
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">&#128172;</div>
@@ -404,14 +293,14 @@
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">&#127881;</div>
-                    <h3>Perfect for Every Occasion</h3>
-                    <p>Whether it's a quick bite, a family meal, or a special celebration, we'll make your visit one to remember.</p>
+                    <h3>Every Occasion</h3>
+                    <p>Quick lunch, family dinner, or a special celebration &mdash; we'll make your visit one to remember.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Google Reviews -->
+    <!-- Reviews -->
     <section class="testimonials" id="reviews">
         <div class="container">
             <h2>What Our Guests Say</h2>
@@ -426,33 +315,24 @@
             <div class="review-grid">
                 <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="reviewer-avatar" style="background: hsl(225, 60%, 50%);">JB</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Jen B.</div>
-                            <div class="reviewer-stars">★★★★★</div>
-                        </div>
+                        <div class="reviewer-avatar" style="background:hsl(225,60%,50%);">JB</div>
+                        <div class="reviewer-info"><div class="reviewer-name">Jen B.</div><div class="reviewer-stars">★★★★★</div></div>
                         <div class="google-icon-small">G</div>
                     </div>
                     <p class="review-text">"My new favourite spot for morning coffee. The flat whites are perfectly made and the homemade cakes are absolutely divine. So glad I found this place."</p>
                 </div>
                 <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="reviewer-avatar" style="background: hsl(0, 60%, 50%);">AT</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Alice T.</div>
-                            <div class="reviewer-stars">★★★★★</div>
-                        </div>
+                        <div class="reviewer-avatar" style="background:hsl(0,60%,50%);">AT</div>
+                        <div class="reviewer-info"><div class="reviewer-name">Alice T.</div><div class="reviewer-stars">★★★★★</div></div>
                         <div class="google-icon-small">G</div>
                     </div>
                     <p class="review-text">"Lovely cosy atmosphere and brilliant food. The full breakfast is exceptional — generous portions and everything cooked exactly right. Will be a regular."</p>
                 </div>
                 <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="reviewer-avatar" style="background: hsl(315, 60%, 50%);">MC</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Mike C.</div>
-                            <div class="reviewer-stars">★★★★★</div>
-                        </div>
+                        <div class="reviewer-avatar" style="background:hsl(315,60%,50%);">MC</div>
+                        <div class="reviewer-info"><div class="reviewer-name">Mike C.</div><div class="reviewer-stars">★★★★★</div></div>
                         <div class="google-icon-small">G</div>
                     </div>
                     <p class="review-text">"Outstanding little cafe. The staff always remember my order and make you feel so welcome. The coffee is consistently brilliant. Highly recommended."</p>
@@ -460,124 +340,91 @@
             </div>
             <div class="see-all-reviews">
                 <a href="https://www.google.com/maps/search/?api=1&query=2%20Canning%20Circus%2C%20Ilkeston%20Rd%2C%20Radford%2C%20Nottingham%20NG7%203GD" target="_blank" rel="noopener" class="see-all-btn">
-                    <span style="background:#4285F4;color:white;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;">G</span>
+                    <span style="background:#4285F4;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;">G</span>
                     See All Reviews on Google
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Booking / Find Us -->
-    <section class="booking" id="booking">
+    <!-- Contact / Find Us -->
+    <section class="booking" id="contact">
         <div class="container">
             <h2>Find Us &amp; Get in Touch</h2>
             <div class="booking-wrapper">
                 <form class="booking-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+                        <input type="text" id="name" placeholder="Jane Smith" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" required>
+                        <input type="tel" id="phone" placeholder="+44 7700 000000" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Message or Reservation Request</label>
-                        <textarea id="message" name="message" placeholder="e.g. Table for 4 on Saturday evening..." required></textarea>
+                        <textarea id="message" placeholder="e.g. Table for 4 on Saturday evening around 7pm..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width:100%;">Send via WhatsApp</button>
                 </form>
-
                 <div class="booking-info">
                     <div class="info-block">
                         <div class="info-label">&#128222; Phone</div>
-                        <div class="info-value">
-                            <a href="tel:+44 7475 272766">+44 7475 272766</a>
-                        </div>
+                        <div class="info-value"><a href="tel:+44 7475 272766">+44 7475 272766</a></div>
                     </div>
                     <div class="info-block">
                         <div class="info-label">&#128139; Email</div>
-                        <div class="info-value">
-                            <a href="#">Available on request</a>
-                        </div>
+                        <div class="info-value"><a href="#">Available on request</a></div>
                     </div>
                     <div class="info-block">
                         <div class="info-label">&#128205; Address</div>
-                        <div class="info-value">
-                            2 Canning Circus, Ilkeston Rd, Radford, Nottingham NG7 3GD
-                            <br>
-                            <a href="https://www.google.com/maps/search/?api=1&query=2%20Canning%20Circus%2C%20Ilkeston%20Rd%2C%20Radford%2C%20Nottingham%20NG7%203GD" target="_blank" rel="noopener" class="maps-link">
-                                &#128506; View on Google Maps
-                            </a>
-                        </div>
+                        <div class="info-value">2 Canning Circus, Ilkeston Rd, Radford, Nottingham NG7 3GD<br><a href="https://www.google.com/maps/search/?api=1&query=2%20Canning%20Circus%2C%20Ilkeston%20Rd%2C%20Radford%2C%20Nottingham%20NG7%203GD" target="_blank" rel="noopener" class="maps-link">&#128506; View on Google Maps</a></div>
                     </div>
                     <div class="info-block">
                         <div class="info-label">&#9200; Opening Hours</div>
-                        <div class="info-value">
-                            Mon&ndash;Fri: 11:00am &ndash; 10:00pm<br>
-                            Saturday: 11:00am &ndash; 11:00pm<br>
-                            Sunday: 12:00pm &ndash; 9:00pm
-                        </div>
+                        <div class="info-value">Mon&ndash;Fri: 11:00am &ndash; 10:00pm<br>Saturday: 11:00am &ndash; 11:00pm<br>Sunday: 12:00pm &ndash; 9:00pm</div>
                     </div>
                     <div class="info-block">
                         <div class="info-label">&#11088; Google Rating</div>
-                        <div class="info-value">
-                            <strong>4.8/5</strong> &middot; 410 verified reviews
-                        </div>
+                        <div class="info-value"><strong>4.8/5</strong> &middot; 410 verified reviews</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Claim CTA -->
+    <section class="claim-section">
+        <h3>Want This Website?</h3>
+        <p>This is a free preview built for Mag Mug Cafe. Get it live and start attracting more diners today.</p>
+        <a href="mailto:hello@webcraftuk.co.uk?subject=I%27d%20like%20my%20website%20%E2%80%94%20Mag%20Mug%20Cafe&body=Hi%20WebCraft%20UK%2C%0A%0AI%27ve%20seen%20my%20preview%20website%20and%20I%27m%20interested%20in%20getting%20it%20live.%0A%0AMy%20business%3A%20Mag%20Mug%20Cafe%0ALocation%3A%20Nottingham%0A%0APlease%20get%20in%20touch." class="claim-btn">&#9993; Contact WebCraft UK &rarr;</a>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-logo">Mag Mug Cafe</div>
-            <p>&#169; 2025 Mag Mug Cafe. All rights reserved.</p>
-            <div class="footer-credit">
-                <p>Serving Nottingham with pride &middot; &#11088; 4.8 stars &middot; 410 reviews</p>
-            </div>
+            <p>&#169; 2025 Mag Mug Cafe. All rights reserved. Nottingham, UK.</p>
+            <p style="font-size:0.72rem;color:#3a1f12;">Preview site by WebCraft UK &mdash; hello@webcraftuk.co.uk</p>
         </div>
     </footer>
 
     <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu   = document.getElementById('nav-menu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navMenu.classList.toggle('active'); });
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('active'); navMenu.classList.remove('active'); }));
+        function scrollToSection(id) { const el = document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
         function handleSubmit(e) {
             e.preventDefault();
-            const name    = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
-            const phone   = '+44 7475 272766';
-            const text    = encodeURIComponent('Hello, my name is ' + name + '. ' + message);
-            window.open('https://wa.me/' + phone.replace(/\D/g,'') + '?text=' + text, '_blank');
+            const name = document.getElementById('name').value;
+            const msg  = document.getElementById('message').value;
+            const ph   = '+44 7475 272766';
+            window.open('https://wa.me/' + ph.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hi, my name is ' + name + '. ' + msg), '_blank');
             e.target.reset();
         }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>

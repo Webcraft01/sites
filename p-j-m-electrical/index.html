@@ -4,304 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P J M Electrical — Electrician in Leeds</title>
-    <meta name="description" content="P J M Electrical — Leeds's Top-Rated Electrician. 5.0 stars from 9 Google reviews. Based in Leeds.">
+    <meta name="description" content="P J M Electrical — Leeds's Top-Rated Electrician. 5.0 stars · 9 Google reviews · Leeds.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Inter',sans-serif; color:#1a1a2e; background:#f4f7ff; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: #1a1a2e;
-            background: #f4f7ff;
-        }
+        /* ── PREVIEW BAR ─────────────────────────────── */
+        .preview-bar { background:#f4a80c; padding:0.55rem 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; font-size:0.82rem; font-weight:700; color:#1a1a2e; position:relative; z-index:1100; }
+        .preview-bar a { background:#1a1a2e; color:#f4a80c; padding:0.3rem 1rem; border-radius:4px; text-decoration:none; font-weight:700; font-size:0.78rem; white-space:nowrap; transition:background .2s; }
+        .preview-bar a:hover { background:#0f3460; }
 
-        /* ── HEADER ─────────────────────────────────── */
-        header {
-            position: sticky; top: 0;
-            background: #1a1a2e; z-index: 1000;
-            padding: 1rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        }
-        .header-left { display: flex; align-items: center; gap: 1.2rem; }
-        .logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem; color: white; font-weight: 700;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300px;
-        }
-        .logo span { color: #f4a80c; }
-        .phone-badge-header {
-            background: rgba(255,255,255,0.1); color: white;
-            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem;
-            font-weight: 500; white-space: nowrap;
-        }
-        .phone-badge-header a { color: #f4a80c; text-decoration: none; font-weight: 600; }
-        nav { display: flex; gap: 1.8rem; }
-        nav a { color: #ccc; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color .3s; }
-        nav a:hover { color: #f4a80c; }
-        .quote-btn {
-            background: #f4a80c; color: #1a1a2e; padding: 0.65rem 1.6rem;
-            border: none; border-radius: 6px; font-weight: 700; cursor: pointer;
-            transition: all .3s; white-space: nowrap; font-size: 0.9rem;
-        }
-        .quote-btn:hover { background: #e09900; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(244,168,12,.4); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .hamburger span { width: 25px; height: 3px; background: #f4a80c; border-radius: 2px; transition: all .3s; }
+        /* ── HEADER ──────────────────────────────────── */
+        header { position:sticky; top:0; background:rgba(26,26,46,0.97); backdrop-filter:blur(8px); z-index:1000; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 20px rgba(0,0,0,.3); }
+        .header-left { display:flex; align-items:center; gap:1.2rem; }
+        .logo { font-family:'Poppins',sans-serif; font-size:1.2rem; color:#fff; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:280px; }
+        .phone-badge-header { background:rgba(255,255,255,.1); color:#fff; padding:0.35rem 0.9rem; border-radius:20px; font-size:0.82rem; font-weight:500; white-space:nowrap; }
+        .phone-badge-header a { color:#f4a80c; text-decoration:none; font-weight:600; }
+        nav { display:flex; gap:1.8rem; }
+        nav a { color:#ccc; text-decoration:none; font-weight:500; font-size:0.88rem; transition:color .3s; }
+        nav a:hover { color:#f4a80c; }
+        .quote-btn { background:#f4a80c; color:#1a1a2e; padding:0.6rem 1.5rem; border:none; border-radius:5px; font-weight:700; cursor:pointer; transition:all .3s; white-space:nowrap; font-size:0.85rem; }
+        .quote-btn:hover { background:#e09900; transform:translateY(-2px); box-shadow:0 5px 15px rgba(244,168,12,.4); }
+        .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+        .hamburger span { width:25px; height:3px; background:#f4a80c; border-radius:2px; transition:all .3s; }
 
-        /* ── HERO ───────────────────────────────────── */
+        /* ── HERO ─────────────────────────────────────── */
         .hero {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            padding: 5rem 2rem 4rem;
-            text-align: center; min-height: 500px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            animation: fadeInDown .8s ease-in;
+            min-height:100vh;
+            background: linear-gradient(to bottom, rgba(10,15,40,0.75) 0%, rgba(10,15,40,0.55) 50%, rgba(10,15,40,0.88) 100%),
+                        url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            display:flex; flex-direction:column; justify-content:center; align-items:center;
+            text-align:center; padding:6rem 2rem 4rem; position:relative;
         }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-        .hero-badge {
-            background: rgba(244,168,12,0.15); color: #f4a80c;
-            border: 1px solid rgba(244,168,12,0.3);
-            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem;
-            font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
-            margin-bottom: 1.2rem; display: inline-block;
-        }
-        .hero h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem; color: white; font-weight: 800; line-height: 1.1;
-            margin-bottom: 0.6rem;
-        }
-        .hero .tagline { font-size: 1.2rem; color: #8ab4f8; margin-bottom: 1.4rem; font-weight: 400; }
+        .hero-badge { background:rgba(244,168,12,0.15); color:#f4a80c; border:1px solid rgba(244,168,12,.4); padding:0.35rem 1.1rem; border-radius:20px; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; margin-bottom:1.2rem; display:inline-block; }
+        .hero h1 { font-family:'Poppins',sans-serif; font-size:clamp(2.2rem,6vw,4.2rem); color:#fff; font-weight:800; line-height:1.08; margin-bottom:0.6rem; text-shadow:0 2px 20px rgba(0,0,0,.5); }
+        .hero .tagline { font-size:1.1rem; color:rgba(255,255,255,.8); margin-bottom:1.5rem; max-width:560px; text-shadow:0 1px 8px rgba(0,0,0,.4); }
+        .hero-rating { display:inline-flex; align-items:center; gap:0.6rem; background:rgba(255,255,255,.08); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.2); border-radius:30px; padding:0.5rem 1.3rem; margin-bottom:2rem; font-size:0.92rem; color:#ddd; }
+        .hero-rating .g-logo { background:#4285F4; color:#fff; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:700; flex-shrink:0; }
+        .hero-rating .rating-val { color:#f4a80c; font-weight:700; font-size:1.05rem; }
+        .hero-rating .review-ct { color:rgba(255,255,255,.7); font-size:0.85rem; }
+        .stars-display .star.full  { color:#f4a80c; }
+        .stars-display .star.half  { color:#f4a80c; opacity:.6; }
+        .stars-display .star.empty { color:rgba(255,255,255,.3); }
+        .hero-buttons { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+        .btn { padding:0.9rem 2rem; border:none; border-radius:5px; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .3s; text-decoration:none; display:inline-block; }
+        .btn-primary { background:#f4a80c; color:#1a1a2e; }
+        .btn-primary:hover { background:#e09900; transform:translateY(-3px); box-shadow:0 8px 25px rgba(244,168,12,.45); }
+        .btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.4); }
+        .btn-secondary:hover { border-color:#f4a80c; color:#f4a80c; transform:translateY(-3px); }
+        .hero-scroll { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.4); font-size:1.4rem; animation:bounce 2s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-        /* Inline rating badge */
-        .hero-rating {
-            display: inline-flex; align-items: center; gap: 0.6rem;
-            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 30px; padding: 0.5rem 1.2rem;
-            margin-bottom: 1.8rem; font-size: 0.95rem; color: white;
-        }
-        .hero-rating .g-logo {
-            background: #4285F4; color: white; border-radius: 50%;
-            width: 22px; height: 22px; display: inline-flex;
-            align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-        }
-        .hero-rating .rating-val { color: #f4a80c; font-size: 1.05rem; font-weight: 700; }
-        .hero-rating .review-ct { color: #aaa; font-size: 0.9rem; }
+        /* ── TRUST BAR ───────────────────────────────── */
+        .trust-bar { background:#f4a80c; padding:0.85rem 2rem; }
+        .trust-bar-inner { display:flex; align-items:center; justify-content:center; gap:1.2rem; flex-wrap:wrap; max-width:1000px; margin:0 auto; font-size:0.85rem; font-weight:700; color:#1a1a2e; }
+        .trust-item { display:flex; align-items:center; gap:0.4rem; white-space:nowrap; }
+        .trust-divider { color:rgba(26,26,46,.3); }
+        .trust-bar .stars-display .star.full  { color:#1a1a2e; font-size:0.9rem; }
+        .trust-bar .stars-display .star.half  { color:#1a1a2e; opacity:.6; font-size:0.9rem; }
+        .trust-bar .stars-display .star.empty { color:rgba(26,26,46,.25); font-size:0.9rem; }
+        .g-badge-sm { background:#fff; color:#4285F4; border-radius:3px; padding:0.1rem 0.4rem; font-size:0.72rem; font-weight:700; }
 
-        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .btn {
-            padding: 0.9rem 2rem; border: none; border-radius: 6px;
-            font-size: 1rem; font-weight: 600; cursor: pointer;
-            transition: all .3s; text-decoration: none; display: inline-block;
-        }
-        .btn-primary { background: #f4a80c; color: #1a1a2e; }
-        .btn-primary:hover { background: #e09900; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(244,168,12,.4); }
-        .btn-secondary { background: transparent; color: white; border: 2px solid rgba(255,255,255,.4); }
-        .btn-secondary:hover { border-color: white; background: rgba(255,255,255,.1); transform: translateY(-3px); }
+        /* ── CONTAINER ───────────────────────────────── */
+        .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+        section { scroll-margin-top:80px; }
 
-        /* ── TRUST BAR / RATING STRIP ───────────────── */
-        .trust-bar {
-            background: #f4a80c; padding: 0.9rem 2rem;
-        }
-        .trust-bar-inner {
-            display: flex; align-items: center; justify-content: center;
-            gap: 1.5rem; flex-wrap: wrap; max-width: 1000px; margin: 0 auto;
-            font-size: 0.9rem; font-weight: 600; color: #1a1a2e;
-        }
-        .trust-item { display: flex; align-items: center; gap: 0.4rem; }
-        .stars-display .star.full  { color: #1a1a2e; }
-        .stars-display .star.half  { color: #1a1a2e; opacity: .6; }
-        .stars-display .star.empty { color: rgba(26,26,46,.3); }
-        .trust-divider { color: rgba(26,26,46,.3); font-size: 1.2rem; }
+        /* ── STATS ───────────────────────────────────── */
+        .stats-section { padding:3.5rem 2rem; background:#fff; }
+        .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1.5rem; max-width:900px; margin:0 auto; text-align:center; }
+        .stat-card { padding:1.5rem 1rem; border-radius:8px; background:#f4f7ff; }
+        /* OVERFLOW FIX: clamp font size so long city names fit */
+        .stat-number { font-family:'Poppins',sans-serif; font-size:clamp(1.1rem,3vw,2rem); font-weight:800; color:#0f3460; line-height:1.2; word-break:break-word; }
+        .stat-label { color:#888; font-size:0.8rem; margin-top:0.3rem; }
 
-        /* ── CONTAINER ──────────────────────────────── */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        /* ── ABOUT ───────────────────────────────────── */
+        .about { padding:5rem 2rem; background:#fff; }
+        .about h2 { font-family:'Poppins',sans-serif; font-size:2.2rem; margin-bottom:1.5rem; color:#1a1a2e; text-align:center; font-weight:700; }
+        .about p { font-size:1.05rem; max-width:820px; margin:0 auto; color:#555; line-height:1.85; text-align:center; }
 
-        /* ── STATS ──────────────────────────────────── */
-        .stats-section { padding: 3rem 2rem; background: white; }
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem; max-width: 900px; margin: 0 auto; text-align: center;
-        }
-        .stat-card { padding: 1.5rem; border-radius: 10px; background: #f4f7ff; }
-        .stat-number { font-family: 'Poppins', sans-serif; font-size: 2.2rem; font-weight: 800; color: #0f3460; }
-        .stat-label { color: #666; font-size: 0.85rem; margin-top: 0.3rem; }
+        /* ── GALLERY ─────────────────────────────────── */
+        .gallery { padding:0; }
+        .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); height:300px; gap:4px; }
+        .gallery-item { background:#dce6f5 center/cover no-repeat; transition:transform .4s; overflow:hidden; }
+        .gallery-item:hover { transform:scale(1.02); }
 
-        /* ── ABOUT ──────────────────────────────────── */
-        .about { padding: 4.5rem 2rem; background: white; }
-        .about h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem; margin-bottom: 1.5rem; color: #1a1a2e; text-align: center; font-weight: 700;
-        }
-        .about p { font-size: 1.05rem; max-width: 820px; margin: 0 auto; color: #555; line-height: 1.85; text-align: center; }
+        /* ── SERVICES ────────────────────────────────── */
+        .services { padding:5rem 2rem; background:#f4f7ff; }
+        .services h2 { font-family:'Poppins',sans-serif; font-size:2.2rem; text-align:center; margin-bottom:0.5rem; color:#1a1a2e; font-weight:700; }
+        .section-sub { text-align:center; color:#999; margin-bottom:2.5rem; font-size:0.88rem; }
+        .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; max-width:1100px; margin:0 auto; }
+        .service-card { background:#fff; padding:1.3rem 1.6rem; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.05); display:flex; justify-content:space-between; align-items:center; border-left:4px solid #f4a80c; transition:all .3s; }
+        .service-card:hover { transform:translateX(4px); box-shadow:0 6px 20px rgba(15,52,96,.12); }
+        .service-name { font-weight:600; color:#1a1a2e; font-size:0.92rem; }
+        .service-price { color:#f4a80c; font-weight:700; font-size:1.05rem; white-space:nowrap; }
 
-        /* ── SERVICES ───────────────────────────────── */
-        .services { padding: 4.5rem 2rem; background: #f4f7ff; }
-        .services h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem; text-align: center; margin-bottom: 0.6rem; color: #1a1a2e; font-weight: 700;
-        }
-        .section-sub { text-align: center; color: #888; margin-bottom: 2.5rem; font-size: 0.95rem; }
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
-        }
-        .service-card {
-            background: white; padding: 1.8rem 1.5rem; border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05); display: flex;
-            justify-content: space-between; align-items: center;
-            border-left: 4px solid #f4a80c; transition: all .3s;
-        }
-        .service-card:hover { transform: translateX(4px); box-shadow: 0 6px 20px rgba(15,52,96,.12); }
-        .service-name { font-weight: 600; color: #1a1a2e; font-size: 0.95rem; }
-        .service-price { color: #f4a80c; font-weight: 700; font-size: 1.1rem; white-space: nowrap; }
+        /* ── WHY CHOOSE ──────────────────────────────── */
+        .why-choose { padding:5rem 2rem; background:#fff; }
+        .why-choose h2 { font-family:'Poppins',sans-serif; font-size:2.2rem; text-align:center; margin-bottom:2.5rem; color:#1a1a2e; font-weight:700; }
+        .choose-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto; }
+        .choose-card { padding:2rem 1.5rem; border-radius:8px; background:#f4f7ff; border-top:3px solid #f4a80c; transition:all .3s; }
+        .choose-card:hover { transform:translateY(-5px); box-shadow:0 10px 28px rgba(15,52,96,.1); }
+        .choose-icon { font-size:1.8rem; margin-bottom:0.8rem; }
+        .choose-card h3 { font-size:1rem; font-weight:600; margin-bottom:0.5rem; color:#1a1a2e; }
+        .choose-card p { font-size:0.88rem; color:#777; line-height:1.6; }
 
-        /* ── WHY CHOOSE ─────────────────────────────── */
-        .why-choose { padding: 4.5rem 2rem; background: white; }
-        .why-choose h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; color: #1a1a2e; font-weight: 700;
-        }
-        .choose-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
-        }
-        .choose-card {
-            padding: 2rem 1.5rem; border-radius: 10px; background: #f4f7ff;
-            border-top: 3px solid #f4a80c; transition: all .3s;
-        }
-        .choose-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(15,52,96,.1); }
-        .choose-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
-        .choose-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; color: #1a1a2e; }
-        .choose-card p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+        /* ── REVIEWS ─────────────────────────────────── */
+        .testimonials { padding:5rem 2rem; background:#f4f7ff; }
+        .testimonials h2 { font-family:'Poppins',sans-serif; font-size:2.2rem; text-align:center; margin-bottom:0.6rem; color:#1a1a2e; font-weight:700; }
+        .google-rating-summary { display:flex; align-items:center; justify-content:center; gap:0.8rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+        .summary-score { font-size:3rem; font-weight:800; color:#1a1a2e; line-height:1; }
+        .summary-right { display:flex; flex-direction:column; gap:0.2rem; }
+        .summary-stars .star { font-size:1.4rem; }
+        .summary-stars .star.full  { color:#f4a80c; }
+        .summary-stars .star.empty { color:#ddd; }
+        .summary-count { font-size:0.85rem; color:#999; }
+        .summary-google { font-size:0.82rem; color:#4285F4; font-weight:600; }
+        .review-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; max-width:1100px; margin:0 auto 2rem; }
+        .review-card { background:#fff; border-radius:10px; padding:1.5rem; box-shadow:0 2px 12px rgba(0,0,0,.07); transition:all .3s; }
+        .review-card:hover { transform:translateY(-4px); box-shadow:0 8px 25px rgba(0,0,0,.1); }
+        .review-header { display:flex; align-items:center; gap:0.8rem; margin-bottom:0.8rem; }
+        .reviewer-avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.9rem; flex-shrink:0; }
+        .reviewer-info { flex:1; }
+        .reviewer-name { font-weight:600; font-size:0.92rem; color:#1a1a2e; }
+        .reviewer-stars { color:#f4a80c; font-size:0.82rem; letter-spacing:1px; }
+        .google-icon-small { background:#4285F4; color:#fff; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; flex-shrink:0; }
+        .review-text { font-size:0.9rem; color:#666; line-height:1.65; font-style:italic; }
+        .see-all-reviews { text-align:center; }
+        .see-all-btn { display:inline-flex; align-items:center; gap:0.5rem; background:#fff; border:2px solid #0f3460; color:#0f3460; padding:0.7rem 1.8rem; border-radius:5px; font-weight:600; text-decoration:none; font-size:0.9rem; transition:all .3s; }
+        .see-all-btn:hover { background:#0f3460; color:#fff; transform:translateY(-2px); }
 
-        /* ── REVIEWS ────────────────────────────────── */
-        .testimonials { padding: 4.5rem 2rem; background: #f4f7ff; }
-        .testimonials h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem; text-align: center; margin-bottom: 0.6rem; color: #1a1a2e; font-weight: 700;
-        }
-        .google-rating-summary {
-            display: flex; align-items: center; justify-content: center;
-            gap: 0.8rem; margin-bottom: 2.5rem; flex-wrap: wrap;
-        }
-        .summary-score { font-size: 3rem; font-weight: 800; color: #1a1a2e; line-height: 1; }
-        .summary-right { display: flex; flex-direction: column; gap: 0.2rem; }
-        .summary-stars .star.full  { color: #f4a80c; font-size: 1.4rem; }
-        .summary-stars .star.empty { color: #ddd; font-size: 1.4rem; }
-        .summary-count { font-size: 0.9rem; color: #777; }
-        .summary-google { font-size: 0.85rem; color: #4285F4; font-weight: 600; }
-        .review-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem; max-width: 1100px; margin: 0 auto 2rem;
-        }
-        .review-card {
-            background: white; border-radius: 12px; padding: 1.5rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.07); transition: all .3s;
-        }
-        .review-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .review-header {
-            display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;
-        }
-        .reviewer-avatar {
-            width: 40px; height: 40px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
-        }
-        .reviewer-info { flex: 1; }
-        .reviewer-name { font-weight: 600; font-size: 0.95rem; color: #1a1a2e; }
-        .reviewer-stars { color: #f4a80c; font-size: 0.85rem; letter-spacing: 1px; }
-        .google-icon-small {
-            background: #4285F4; color: white; border-radius: 50%;
-            width: 24px; height: 24px; display: flex; align-items: center;
-            justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-        }
-        .review-text { font-size: 0.92rem; color: #555; line-height: 1.6; font-style: italic; }
-        .see-all-reviews { text-align: center; }
-        .see-all-btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            background: white; border: 2px solid #0f3460; color: #0f3460;
-            padding: 0.7rem 1.8rem; border-radius: 6px; font-weight: 600;
-            text-decoration: none; font-size: 0.95rem; transition: all .3s;
-        }
-        .see-all-btn:hover { background: #0f3460; color: white; transform: translateY(-2px); }
+        /* ── CONTACT ──────────────────────────────────── */
+        .contact { padding:5rem 2rem; background:#fff; }
+        .contact h2 { font-family:'Poppins',sans-serif; font-size:2.2rem; text-align:center; margin-bottom:2.5rem; color:#1a1a2e; font-weight:700; }
+        .contact-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:3rem; max-width:1000px; margin:0 auto; }
+        .contact-form { display:flex; flex-direction:column; gap:1.2rem; }
+        .form-group { display:flex; flex-direction:column; gap:0.35rem; }
+        .form-group label { font-weight:500; color:#555; font-size:0.88rem; }
+        .form-group input, .form-group textarea { padding:0.75rem 1rem; border:1.5px solid #dce6f5; border-radius:6px; font-size:0.95rem; font-family:'Inter',sans-serif; transition:border-color .3s; }
+        .form-group input:focus, .form-group textarea:focus { outline:none; border-color:#0f3460; }
+        .form-group textarea { min-height:110px; resize:vertical; }
+        .contact-info { display:flex; flex-direction:column; gap:1.5rem; }
+        .info-block { border-left:4px solid #f4a80c; padding-left:1rem; }
+        .info-label { font-weight:700; color:#0f3460; font-size:0.75rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:0.25rem; }
+        .info-value { color:#1a1a2e; font-size:0.92rem; line-height:1.55; }
+        .info-value a { color:#0f3460; text-decoration:none; }
+        .info-value a:hover { text-decoration:underline; }
+        .maps-link { display:inline-flex; align-items:center; gap:0.4rem; color:#4285F4; text-decoration:none; font-size:0.85rem; font-weight:500; margin-top:0.3rem; }
+        .maps-link:hover { text-decoration:underline; }
 
-        /* ── CONTACT ────────────────────────────────── */
-        .contact { padding: 4.5rem 2rem; background: white; }
-        .contact h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; color: #1a1a2e; font-weight: 700;
-        }
-        .contact-wrapper {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 3rem; max-width: 1000px; margin: 0 auto;
-        }
-        .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
-        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-        .form-group label { font-weight: 500; color: #444; font-size: 0.9rem; }
-        .form-group input, .form-group textarea {
-            padding: 0.75rem 1rem; border: 1.5px solid #dce6f5; border-radius: 6px;
-            font-size: 1rem; font-family: 'Inter', sans-serif; transition: border-color .3s;
-        }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #0f3460; }
-        .form-group textarea { min-height: 110px; resize: vertical; }
-        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
-        .info-block { border-left: 4px solid #f4a80c; padding-left: 1rem; }
-        .info-label { font-weight: 700; color: #0f3460; font-size: 0.8rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 0.25rem; }
-        .info-value { color: #1a1a2e; font-size: 0.95rem; line-height: 1.5; }
-        .info-value a { color: #0f3460; text-decoration: none; }
-        .info-value a:hover { text-decoration: underline; }
-        .maps-link {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            color: #4285F4; text-decoration: none; font-size: 0.9rem; font-weight: 500; margin-top: 0.3rem;
-        }
-        .maps-link:hover { text-decoration: underline; }
+        /* ── CLAIM CTA ───────────────────────────────── */
+        .claim-section { background:#1a1a2e; border-top:3px solid #f4a80c; padding:3rem 2rem; text-align:center; }
+        .claim-section h3 { font-family:'Poppins',sans-serif; font-size:1.8rem; color:#fff; font-weight:700; margin-bottom:0.6rem; }
+        .claim-section p { color:#aaa; font-size:0.95rem; margin-bottom:1.5rem; max-width:480px; margin-left:auto; margin-right:auto; }
+        .claim-btn { display:inline-flex; align-items:center; gap:0.6rem; background:#f4a80c; color:#1a1a2e; padding:0.9rem 2.5rem; border-radius:5px; font-weight:700; text-decoration:none; font-size:0.9rem; letter-spacing:.03em; transition:all .3s; }
+        .claim-btn:hover { background:#e09900; transform:translateY(-3px); box-shadow:0 8px 25px rgba(244,168,12,.4); }
 
-        /* ── FOOTER ─────────────────────────────────── */
-        footer {
-            background: #1a1a2e; color: #aaa;
-            padding: 2.5rem 2rem; text-align: center;
-        }
-        .footer-content { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
-        .footer-top { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; }
-        .footer-logo { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: white; font-weight: 700; }
-        .footer-rating { color: #f4a80c; font-size: 0.9rem; }
-        footer p { font-size: 0.9rem; }
-        .footer-credit { color: #555; font-size: 0.8rem; }
+        /* ── FOOTER ──────────────────────────────────── */
+        footer { background:#0d0d1a; color:#555; padding:2rem 2rem; text-align:center; }
+        .footer-content { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
+        .footer-logo { font-family:'Poppins',sans-serif; font-size:1.1rem; color:#f4a80c; font-weight:700; }
+        footer p { font-size:0.82rem; }
 
-        /* ── RESPONSIVE ─────────────────────────────── */
-        @media (max-width: 768px) {
-            nav { display: none; position: absolute; top: 100%; left: 0; right: 0;
-                  background: #1a1a2e; flex-direction: column; padding: 1rem 2rem; gap: 1rem;
-                  box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-            nav.active { display: flex; }
-            .hamburger { display: flex; }
-            .quote-btn { display: none; }
-            .phone-badge-header { display: none; }
-            .hero h1 { font-size: 2rem; }
-            .hero .tagline { font-size: 1rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 300px; text-align: center; }
-            .contact-wrapper { grid-template-columns: 1fr; }
-            .service-card { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media (max-width:768px) {
+            nav { display:none; position:absolute; top:100%; left:0; right:0; background:#1a1a2e; flex-direction:column; padding:1rem 2rem; gap:1rem; box-shadow:0 10px 20px rgba(0,0,0,.3); }
+            nav.active { display:flex; }
+            .hamburger { display:flex; }
+            .quote-btn, .phone-badge-header { display:none; }
+            .hero h1 { font-size:2rem; }
+            .hero-buttons { flex-direction:column; align-items:center; }
+            .btn { width:100%; max-width:300px; text-align:center; }
+            .contact-wrapper { grid-template-columns:1fr; }
+            .gallery-grid { height:160px; }
+            .service-card { flex-direction:column; align-items:flex-start; gap:0.3rem; }
         }
 
-        /* ── ANIMATIONS ─────────────────────────────── */
-        .fade-in { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* ── ANIMATIONS ──────────────────────────────── */
+        .fade-in { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+        .fade-in.visible { opacity:1; transform:translateY(0); }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Preview Bar -->
+    <div class="preview-bar">
+        <span>&#9889; This website was built for <strong>P J M Electrical</strong> &mdash; free preview by WebCraft UK</span>
+        <a href="mailto:hello@webcraftuk.co.uk?subject=I%27d%20like%20my%20website%20%E2%80%94%20P%20J%20M%20Electrical&body=Hi%20WebCraft%20UK%2C%0A%0AI%27ve%20seen%20my%20preview%20website%20and%20I%27m%20interested%20in%20getting%20it%20live.%0A%0AMy%20business%3A%20P%20J%20M%20Electrical%0ALocation%3A%20Leeds%0A%0APlease%20get%20in%20touch.">Claim This Website &rarr;</a>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="header-left">
             <div class="logo">P J M Electrical</div>
-            <div class="phone-badge-header">📞 <a href="tel:+44 113 295 6752">+44 113 295 6752</a></div>
+            <div class="phone-badge-header">&#128222; <a href="tel:+44 113 295 6752">+44 113 295 6752</a></div>
         </div>
         <nav id="nav-menu">
             <a href="#about">About</a>
@@ -310,45 +207,39 @@
             <a href="#contact">Contact</a>
         </nav>
         <button class="quote-btn" onclick="scrollToSection('contact')">Free Quote</button>
-        <div class="hamburger" id="hamburger">
-            <span></span><span></span><span></span>
-        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </header>
 
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-badge">Leeds · Electrician</div>
+    <section class="hero" id="home">
+        <div class="hero-badge">Leeds &middot; Electrician</div>
         <h1>P J M Electrical</h1>
         <p class="tagline">Leeds's Top-Rated Electrician</p>
-
         <div class="hero-rating">
             <span class="g-logo">G</span>
             <span class="rating-val">5.0</span>
             <span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></span>
             <span class="review-ct">9 Google reviews</span>
         </div>
-
         <div class="hero-buttons">
             <button class="btn btn-primary" onclick="scrollToSection('contact')">Get a Free Quote</button>
             <button class="btn btn-secondary" onclick="scrollToSection('services')">Our Services</button>
         </div>
+        <div class="hero-scroll">&#8595;</div>
     </section>
 
     <!-- Trust Bar -->
     <div class="trust-bar">
         <div class="trust-bar-inner">
-            <div class="trust-item">
-                <span style="background:#4285F4;color:white;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;">G</span>
-                Google Verified
-            </div>
+            <div class="trust-item"><span class="g-badge-sm">G</span> Google Verified</div>
             <span class="trust-divider">|</span>
             <div class="trust-item"><span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></span> 5.0 Stars</div>
             <span class="trust-divider">|</span>
             <div class="trust-item">9 Reviews</div>
             <span class="trust-divider">|</span>
-            <div class="trust-item">📍 Based in Leeds</div>
+            <div class="trust-item">&#128205; Leeds</div>
             <span class="trust-divider">|</span>
-            <div class="trust-item">✅ Fully Insured</div>
+            <div class="trust-item">&#9989; Fully Insured</div>
         </div>
     </div>
 
@@ -357,7 +248,7 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card fade-in">
-                    <div class="stat-number">5.0</div>
+                    <div class="stat-number">5.0★</div>
                     <div class="stat-label">Google Star Rating</div>
                 </div>
                 <div class="stat-card fade-in">
@@ -365,11 +256,11 @@
                     <div class="stat-label">Verified Reviews</div>
                 </div>
                 <div class="stat-card fade-in">
-                    <div class="stat-number">✓</div>
+                    <div class="stat-number">&#10003;</div>
                     <div class="stat-label">Fully Insured</div>
                 </div>
                 <div class="stat-card fade-in">
-                    <div class="stat-number">Leeds</div>
+                    <div class="stat-number" style="font-size:clamp(0.9rem,2.5vw,1.6rem);">Leeds</div>
                     <div class="stat-label">Local Specialists</div>
                 </div>
             </div>
@@ -384,80 +275,71 @@
         </div>
     </section>
 
+    <!-- Gallery -->
+    <div class="gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+        </div>
+    </div>
+
     <!-- Services -->
     <section class="services" id="services">
         <div class="container">
             <h2>Services &amp; Pricing</h2>
-            <p class="section-sub">All prices are indicative — contact us for a free, no-obligation quote.</p>
+            <p class="section-sub">Contact us for a free, no-obligation quote.</p>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-name">Electrical Safety Check</div>
-                    <div class="service-price">£99</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Consumer Unit Upgrade</div>
-                    <div class="service-price">From £450</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Socket / Switch Installation</div>
-                    <div class="service-price">From £50</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">EV Charger Install</div>
-                    <div class="service-price">From £450</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Outdoor Lighting</div>
-                    <div class="service-price">From £80</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Emergency Call-out</div>
-                    <div class="service-price">From £80</div>
-                </div>
+                <div class="service-card fade-in"><div class="service-name">Electrical Safety Check</div><div class="service-price">£99</div></div>
+                <div class="service-card fade-in"><div class="service-name">Consumer Unit Upgrade</div><div class="service-price">From £450</div></div>
+                <div class="service-card fade-in"><div class="service-name">Socket / Switch Installation</div><div class="service-price">From £50</div></div>
+                <div class="service-card fade-in"><div class="service-name">EV Charger Install</div><div class="service-price">From £450</div></div>
+                <div class="service-card fade-in"><div class="service-name">Outdoor Lighting</div><div class="service-price">From £80</div></div>
+                <div class="service-card fade-in"><div class="service-name">Emergency Call-out</div><div class="service-price">From £80</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us -->
+    <!-- Why Choose -->
     <section class="why-choose" id="why-us">
         <div class="container">
             <h2>Why Choose P J M Electrical?</h2>
             <div class="choose-grid">
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">⭐</div>
-                    <h3>5.0-Star Google Rating</h3>
-                    <p>9 verified reviews from satisfied customers across Leeds — the numbers speak for themselves.</p>
+                    <div class="choose-icon">&#11088;</div>
+                    <h3>5.0-Star Rated on Google</h3>
+                    <p>9 verified reviews from satisfied customers. We've earned our reputation one job at a time.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">📍</div>
-                    <h3>Locally Based in Leeds</h3>
-                    <p>We know Leeds inside out. Fast response times, no call-out hassle, and always a friendly face you can trust.</p>
+                    <div class="choose-icon">&#128205;</div>
+                    <h3>Based in Leeds</h3>
+                    <p>We know Leeds inside out. Fast response times, no long waits, and always a friendly local face.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">🔧</div>
-                    <h3>Experienced Tradespeople</h3>
-                    <p>Fully qualified professionals with years of hands-on experience. We take real pride in every job, big or small.</p>
+                    <div class="choose-icon">&#128295;</div>
+                    <h3>Experienced &amp; Qualified</h3>
+                    <p>Fully trained professionals with years of hands-on experience. We take real pride in every job we do.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">💷</div>
+                    <div class="choose-icon">&#128183;</div>
                     <h3>Transparent Pricing</h3>
-                    <p>No hidden fees, no nasty surprises. We provide clear upfront quotes and stick to them every time.</p>
+                    <p>No hidden fees, no surprises. Clear upfront quotes and we always stick to them. What we say is what you pay.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">🛡️</div>
+                    <div class="choose-icon">&#128737;&#65039;</div>
                     <h3>Fully Insured</h3>
-                    <p>Complete peace of mind — all our work is fully insured and guaranteed. Your home is in safe hands.</p>
+                    <p>All work is fully insured and guaranteed. Your property is completely protected every step of the way.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">⚡</div>
+                    <div class="choose-icon">&#9889;</div>
                     <h3>Fast Response</h3>
-                    <p>We respond quickly and get the job done efficiently. Emergency call-outs available — just give us a ring.</p>
+                    <p>We respond quickly and work efficiently. Emergency call-outs available — just pick up the phone.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Google Reviews -->
+    <!-- Reviews -->
     <section class="testimonials" id="reviews">
         <div class="container">
             <h2>What Our Customers Say</h2>
@@ -472,33 +354,24 @@
             <div class="review-grid">
                 <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="reviewer-avatar" style="background: hsl(135, 60%, 50%);">IM</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Ian M.</div>
-                            <div class="reviewer-stars">★★★★★</div>
-                        </div>
+                        <div class="reviewer-avatar" style="background:hsl(135,60%,50%);">IM</div>
+                        <div class="reviewer-info"><div class="reviewer-name">Ian M.</div><div class="reviewer-stars">★★★★★</div></div>
                         <div class="google-icon-small">G</div>
                     </div>
                     <p class="review-text">"Had a full consumer unit upgrade done — professional from start to finish. Arrived on time, completed the work cleanly and the price was very fair."</p>
                 </div>
                 <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="reviewer-avatar" style="background: hsl(45, 60%, 50%);">RP</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Rob P.</div>
-                            <div class="reviewer-stars">★★★★★</div>
-                        </div>
+                        <div class="reviewer-avatar" style="background:hsl(45,60%,50%);">RP</div>
+                        <div class="reviewer-info"><div class="reviewer-name">Rob P.</div><div class="reviewer-stars">★★★★★</div></div>
                         <div class="google-icon-small">G</div>
                     </div>
                     <p class="review-text">"Fitted an EV charger and sorted a few other electrical jobs while here. Really knowledgeable and kept me informed throughout. Excellent service."</p>
                 </div>
                 <div class="review-card fade-in">
                     <div class="review-header">
-                        <div class="reviewer-avatar" style="background: hsl(90, 60%, 50%);">NT</div>
-                        <div class="reviewer-info">
-                            <div class="reviewer-name">Neil T.</div>
-                            <div class="reviewer-stars">★★★★★</div>
-                        </div>
+                        <div class="reviewer-avatar" style="background:hsl(90,60%,50%);">NT</div>
+                        <div class="reviewer-info"><div class="reviewer-name">Neil T.</div><div class="reviewer-stars">★★★★★</div></div>
                         <div class="google-icon-small">G</div>
                     </div>
                     <p class="review-text">"Called for an electrical safety check before selling my house. Very thorough, great report, and identified a few things that needed sorting. Top work."</p>
@@ -506,7 +379,7 @@
             </div>
             <div class="see-all-reviews">
                 <a href="https://www.google.com/maps/search/?api=1&query=21%20Borrough%20Ave%2C%20Roundhay%2C%20Leeds%20LS8%201LR" target="_blank" rel="noopener" class="see-all-btn">
-                    <span style="background:#4285F4;color:white;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;">G</span>
+                    <span style="background:#4285F4;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;">G</span>
                     See All Reviews on Google
                 </a>
             </div>
@@ -521,112 +394,76 @@
                 <form class="contact-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                        <input type="text" id="name" placeholder="John Smith" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" required>
+                        <input type="tel" id="phone" placeholder="+44 7700 000000" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Describe the Job</label>
-                        <textarea id="message" name="message" placeholder="e.g. I need a leaking pipe repaired in the kitchen..." required></textarea>
+                        <textarea id="message" placeholder="e.g. I need a leaking pipe repaired in the kitchen..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width:100%;">Send via WhatsApp</button>
                 </form>
-
                 <div class="contact-info">
                     <div class="info-block">
-                        <div class="info-label">📞 Phone</div>
-                        <div class="info-value">
-                            <a href="tel:+44 113 295 6752">+44 113 295 6752</a>
-                        </div>
+                        <div class="info-label">&#128222; Phone</div>
+                        <div class="info-value"><a href="tel:+44 113 295 6752">+44 113 295 6752</a></div>
                     </div>
                     <div class="info-block">
-                        <div class="info-label">📧 Email</div>
-                        <div class="info-value">
-                            <a href="#">Available on request</a>
-                        </div>
+                        <div class="info-label">&#128139; Email</div>
+                        <div class="info-value"><a href="#">Available on request</a></div>
                     </div>
                     <div class="info-block">
-                        <div class="info-label">📍 Based In</div>
-                        <div class="info-value">
-                            21 Borrough Ave, Roundhay, Leeds LS8 1LR
-                            <br>
-                            <a href="https://www.google.com/maps/search/?api=1&query=21%20Borrough%20Ave%2C%20Roundhay%2C%20Leeds%20LS8%201LR" target="_blank" rel="noopener" class="maps-link">
-                                🗺 View on Google Maps
-                            </a>
-                        </div>
+                        <div class="info-label">&#128205; Based In</div>
+                        <div class="info-value">21 Borrough Ave, Roundhay, Leeds LS8 1LR<br><a href="https://www.google.com/maps/search/?api=1&query=21%20Borrough%20Ave%2C%20Roundhay%2C%20Leeds%20LS8%201LR" target="_blank" rel="noopener" class="maps-link">&#128506; View on Google Maps</a></div>
                     </div>
                     <div class="info-block">
-                        <div class="info-label">⏰ Hours</div>
-                        <div class="info-value">
-                            Mon–Fri: 7:00am – 6:00pm<br>
-                            Saturday: 8:00am – 4:00pm<br>
-                            Emergency: 24/7
-                        </div>
+                        <div class="info-label">&#9200; Hours</div>
+                        <div class="info-value">Mon&ndash;Fri: 7:00am &ndash; 6:00pm<br>Saturday: 8:00am &ndash; 4:00pm<br>Emergency: 24/7</div>
                     </div>
                     <div class="info-block">
-                        <div class="info-label">⭐ Google Rating</div>
-                        <div class="info-value">
-                            <strong>5.0/5</strong> · 9 verified reviews
-                        </div>
+                        <div class="info-label">&#11088; Google Rating</div>
+                        <div class="info-value"><strong>5.0/5</strong> &middot; 9 verified reviews</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Claim CTA -->
+    <section class="claim-section">
+        <h3>Want This Website?</h3>
+        <p>This is a free preview built for P J M Electrical. Get it live and start winning more jobs online today.</p>
+        <a href="mailto:hello@webcraftuk.co.uk?subject=I%27d%20like%20my%20website%20%E2%80%94%20P%20J%20M%20Electrical&body=Hi%20WebCraft%20UK%2C%0A%0AI%27ve%20seen%20my%20preview%20website%20and%20I%27m%20interested%20in%20getting%20it%20live.%0A%0AMy%20business%3A%20P%20J%20M%20Electrical%0ALocation%3A%20Leeds%0A%0APlease%20get%20in%20touch." class="claim-btn">&#9993; Contact WebCraft UK &rarr;</a>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-logo">P J M Electrical</div>
-                <div class="footer-rating">⭐ 5.0 · 9 Reviews</div>
-            </div>
-            <p>© 2025 P J M Electrical. All rights reserved. Leeds, UK.</p>
-            <div class="footer-credit">
-                <p>Professional Electrician services in Leeds</p>
-            </div>
+            <div class="footer-logo">P J M Electrical</div>
+            <p>&#169; 2025 P J M Electrical. All rights reserved. Leeds, UK.</p>
+            <p style="font-size:0.72rem;color:#333;">Preview site by WebCraft UK &mdash; hello@webcraftuk.co.uk</p>
         </div>
     </footer>
 
     <script>
         const hamburger = document.getElementById('hamburger');
         const navMenu   = document.getElementById('nav-menu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navMenu.classList.toggle('active'); });
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('active'); navMenu.classList.remove('active'); }));
+        function scrollToSection(id) { const el = document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
         function handleSubmit(e) {
             e.preventDefault();
-            const name    = document.getElementById('name').value;
-            const message = document.getElementById('message').value;
-            const phone   = '+44 113 295 6752';
-            const text    = encodeURIComponent(`Hello, my name is ${name}. ${message}`);
-            window.open(`https://wa.me/${phone.replace(/\D/g,'')}?text=${text}`, '_blank');
+            const name = document.getElementById('name').value;
+            const msg  = document.getElementById('message').value;
+            const ph   = '+44 113 295 6752';
+            window.open('https://wa.me/' + ph.replace(/\D/g,'') + '?text=' + encodeURIComponent('Hi, my name is ' + name + '. ' + msg), '_blank');
             e.target.reset();
         }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>
