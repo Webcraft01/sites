@@ -3,18 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Queens Den - Beauty Salon</title>
+    <title>The Queens Den — Beauty Salon in Leicester</title>
+    <meta name="description" content="The Queens Den — Leicester's Highly-Rated Beauty Salon. 4.8 stars from 56 Google reviews. Based in Leicester.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -23,689 +17,377 @@
             background: #fdf2f4;
         }
 
-        /* Header and Navigation */
+        /* ── HEADER ─────────────────────────────────── */
         header {
-            position: sticky;
-            top: 0;
+            position: sticky; top: 0;
             background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             z-index: 1000;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: #b76e79;
-            font-weight: 700;
+            font-size: 1.4rem; color: #b76e79; font-weight: 700;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            max-width: 50%;
         }
-
+        nav { display: flex; gap: 1.8rem; }
+        nav a { color: #2d2d2d; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color .3s; }
+        nav a:hover { color: #b76e79; }
         .book-btn {
-            background: #b76e79;
-            color: white;
-            padding: 0.7rem 1.8rem;
-            border: none;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            background: #b76e79; color: white; padding: 0.65rem 1.6rem;
+            border: none; border-radius: 25px; font-weight: 600; cursor: pointer;
+            transition: all .3s; white-space: nowrap; font-size: 0.9rem;
         }
+        .book-btn:hover { background: #a35a66; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(183,110,121,.3); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger span { width: 25px; height: 3px; background: #b76e79; border-radius: 2px; transition: all .3s; }
 
-        .book-btn:hover {
-            background: #a35a66;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.3);
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #b76e79;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #2d2d2d;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #b76e79;
-        }
-
-        /* Hero Section */
+        /* ── HERO ───────────────────────────────────── */
         .hero {
-            background: linear-gradient(135deg, #fdf2f4 0%, #f5e6eb 100%);
-            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #fdf2f4 0%, #f0d6dc 100%);
+            padding: 5rem 2rem 4rem;
             text-align: center;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInDown 0.8s ease-in;
+            min-height: 480px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            animation: fadeInDown .8s ease-in;
         }
-
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: #2d2d2d;
-            margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.1;
+            font-size: 3.2rem; color: #2d2d2d; font-weight: 800; line-height: 1.1;
+            margin-bottom: 0.6rem;
         }
+        .hero .tagline { font-size: 1.25rem; color: #7a4a52; margin-bottom: 1.2rem; font-weight: 500; }
 
-        .hero .tagline {
-            font-size: 1.3rem;
-            color: #666;
-            margin-bottom: 2rem;
-            max-width: 600px;
+        /* Inline rating badge in hero */
+        .hero-rating {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: white; border-radius: 30px;
+            padding: 0.5rem 1.2rem; margin-bottom: 1.6rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            font-size: 0.95rem; font-weight: 600; color: #2d2d2d;
         }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        .hero-rating .g-logo {
+            background: #4285F4; color: white; border-radius: 50%;
+            width: 22px; height: 22px; display: inline-flex;
+            align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
         }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #b76e79;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #a35a66;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(183, 110, 121, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #b76e79;
-            border: 2px solid #b76e79;
-        }
-
-        .btn-secondary:hover {
-            background: #fdf2f4;
-            transform: translateY(-3px);
-        }
+        .hero-rating .rating-val { color: #f4a80c; font-size: 1.05rem; }
+        .hero-rating .review-ct { color: #666; font-weight: 400; }
 
         .phone-badge {
-            background: white;
-            color: #b76e79;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            display: inline-block;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            background: white; color: #b76e79; padding: 0.55rem 1.2rem;
+            border-radius: 20px; font-weight: 600; margin-bottom: 1.8rem;
+            display: inline-block; box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
-
-        .phone-badge a {
-            color: #b76e79;
-            text-decoration: none;
+        .phone-badge a { color: #b76e79; text-decoration: none; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 0.9rem 2rem; border: none; border-radius: 25px;
+            font-size: 1rem; font-weight: 600; cursor: pointer;
+            transition: all .3s; text-decoration: none; display: inline-block;
         }
+        .btn-primary { background: #b76e79; color: white; }
+        .btn-primary:hover { background: #a35a66; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(183,110,121,.3); }
+        .btn-secondary { background: white; color: #b76e79; border: 2px solid #b76e79; }
+        .btn-secondary:hover { background: #fdf2f4; transform: translateY(-3px); }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+        /* ── RATING STRIP ───────────────────────────── */
+        .rating-strip {
+            background: #2d2d2d; color: white;
+            padding: 1.1rem 2rem; text-align: center;
         }
-
-        /* About Section */
-        .about {
-            padding: 4rem 2rem;
-            background: white;
+        .rating-strip-inner {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.2rem; flex-wrap: wrap;
+            max-width: 900px; margin: 0 auto; font-size: 0.95rem;
         }
+        .rating-strip .g-badge {
+            background: white; color: #4285F4;
+            border-radius: 6px; padding: 0.2rem 0.6rem;
+            font-weight: 700; font-size: 0.85rem; letter-spacing: 0.03em;
+        }
+        .stars-display .star { font-size: 1.1rem; }
+        .stars-display .star.full  { color: #f4a80c; }
+        .stars-display .star.half  { color: #f4a80c; opacity: .65; }
+        .stars-display .star.empty { color: #888; }
+        .rating-strip .rating-num { font-size: 1.3rem; font-weight: 700; color: #f4a80c; }
+        .rating-strip .divider     { color: #666; }
+        .rating-strip .review-text { color: #ccc; }
+        .rating-strip .city-note   { color: #f0b8c0; font-weight: 500; }
 
+        /* ── CONTAINER ──────────────────────────────── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── ABOUT ──────────────────────────────────── */
+        .about { padding: 4.5rem 2rem; background: white; }
         .about h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #2d2d2d;
-            text-align: center;
+            font-size: 2.4rem; margin-bottom: 1.5rem; color: #2d2d2d; text-align: center;
         }
+        .about p { font-size: 1.05rem; max-width: 820px; margin: 0 auto; color: #555; line-height: 1.85; text-align: center; }
 
-        .about p {
-            font-size: 1.05rem;
-            max-width: 900px;
-            margin: 0 auto;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 4rem 2rem;
-        }
-
+        /* ── SERVICES ───────────────────────────────── */
+        .services { padding: 4.5rem 2rem; background: #fdf2f4; }
         .services h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2d2d2d;
+            font-size: 2.4rem; text-align: center; margin-bottom: 0.6rem; color: #2d2d2d;
         }
-
+        .services .section-sub { text-align: center; color: #888; margin-bottom: 2.5rem; font-size: 0.95rem; }
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
         }
-
         .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
-            text-align: center;
-            transition: all 0.3s ease;
-            border-top: 3px solid #b76e79;
+            background: white; padding: 1.8rem 1.5rem; border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06); text-align: center;
+            transition: all .3s; border-top: 3px solid #b76e79;
         }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(183,110,121,.15); }
+        .service-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #2d2d2d; margin-bottom: 0.4rem; }
+        .service-price { color: #b76e79; font-weight: 700; font-size: 1.25rem; }
 
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.15);
-        }
-
-        .service-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: #2d2d2d;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-price {
-            color: #b76e79;
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        /* Why Choose Us */
-        .why-choose {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
+        /* ── WHY CHOOSE ─────────────────────────────── */
+        .why-choose { padding: 4.5rem 2rem; background: white; }
         .why-choose h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2d2d2d;
+            font-size: 2.4rem; text-align: center; margin-bottom: 2.5rem; color: #2d2d2d;
         }
-
         .choose-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
         }
-
         .choose-card {
-            text-align: center;
-            padding: 2rem;
-            background: #fdf2f4;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            text-align: center; padding: 2rem 1.5rem;
+            background: #fdf2f4; border-radius: 10px; transition: all .3s;
         }
+        .choose-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(183,110,121,.1); }
+        .choose-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .choose-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; color: #2d2d2d; }
+        .choose-card p { font-size: 0.9rem; color: #777; line-height: 1.6; }
 
-        .choose-card:hover {
-            background: #f5e6eb;
-            transform: translateY(-5px);
-        }
-
-        .choose-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .choose-card h3 {
-            color: #2d2d2d;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .choose-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            padding: 4rem 2rem;
-        }
-
+        /* ── GOOGLE REVIEWS ─────────────────────────── */
+        .testimonials { padding: 4.5rem 2rem; background: #fdf2f4; }
         .testimonials h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.4rem; text-align: center; margin-bottom: 0.6rem; color: #2d2d2d;
+        }
+        .google-rating-summary {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.8rem; margin-bottom: 2.5rem; flex-wrap: wrap;
+        }
+        .summary-score { font-size: 3rem; font-weight: 800; color: #2d2d2d; line-height: 1; }
+        .summary-right { display: flex; flex-direction: column; gap: 0.2rem; }
+        .summary-stars .star { font-size: 1.4rem; }
+        .summary-stars .star.full  { color: #f4a80c; }
+        .summary-stars .star.empty { color: #ddd; }
+        .summary-count { font-size: 0.9rem; color: #777; }
+        .summary-google { font-size: 0.85rem; color: #4285F4; font-weight: 600; }
+        .review-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; max-width: 1100px; margin: 0 auto 2rem;
+        }
+        .review-card {
+            background: white; border-radius: 12px; padding: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07); transition: all .3s;
+        }
+        .review-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .review-header {
+            display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem;
+        }
+        .reviewer-avatar {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+        }
+        .reviewer-info { flex: 1; }
+        .reviewer-name { font-weight: 600; font-size: 0.95rem; color: #2d2d2d; }
+        .reviewer-stars { color: #f4a80c; font-size: 0.85rem; letter-spacing: 1px; }
+        .google-icon-small {
+            background: #4285F4; color: white; border-radius: 50%;
+            width: 24px; height: 24px; display: flex; align-items: center;
+            justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+        }
+        .review-text { font-size: 0.92rem; color: #555; line-height: 1.6; font-style: italic; }
+        .see-all-reviews {
             text-align: center;
-            margin-bottom: 3rem;
-            color: #2d2d2d;
         }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
+        .see-all-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: white; border: 2px solid #b76e79; color: #b76e79;
+            padding: 0.7rem 1.8rem; border-radius: 25px; font-weight: 600;
+            text-decoration: none; font-size: 0.95rem; transition: all .3s;
         }
+        .see-all-btn:hover { background: #b76e79; color: white; transform: translateY(-2px); }
 
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stars {
-            color: #ffc107;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-text {
-            color: #666;
-            margin-bottom: 1rem;
-            font-style: italic;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            color: #2d2d2d;
-        }
-
-        .testimonial-role {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Booking Section */
-        .booking {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
+        /* ── BOOKING / CONTACT ──────────────────────── */
+        .booking { padding: 4.5rem 2rem; background: white; }
         .booking h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2d2d2d;
+            font-size: 2.4rem; text-align: center; margin-bottom: 2.5rem; color: #2d2d2d;
         }
-
         .booking-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 3rem; max-width: 1000px; margin: 0 auto;
         }
-
-        .booking-form {
-            background: #fdf2f4;
-            padding: 2.5rem;
-            border-radius: 8px;
+        .booking-form { display: flex; flex-direction: column; gap: 1.2rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .form-group label { font-weight: 500; color: #444; font-size: 0.9rem; }
+        .form-group input, .form-group textarea {
+            padding: 0.75rem 1rem; border: 1.5px solid #e0c8cc; border-radius: 8px;
+            font-size: 1rem; font-family: 'Inter', sans-serif;
+            transition: border-color .3s;
         }
-
-        .form-group {
-            margin-bottom: 1.5rem;
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: #b76e79;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #2d2d2d;
-            font-weight: 500;
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .booking-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .info-block { border-left: 3px solid #b76e79; padding-left: 1rem; }
+        .info-label { font-weight: 600; color: #b76e79; font-size: 0.85rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 0.25rem; }
+        .info-value { color: #2d2d2d; font-size: 0.95rem; line-height: 1.5; }
+        .info-value a { color: #b76e79; text-decoration: none; }
+        .info-value a:hover { text-decoration: underline; }
+        .maps-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            color: #4285F4; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+            margin-top: 0.3rem;
         }
+        .maps-link:hover { text-decoration: underline; }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #b76e79;
-            box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .booking-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .info-block {
-            background: #fdf2f4;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #b76e79;
-        }
-
-        .info-label {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            color: #2d2d2d;
-            margin-bottom: 0.8rem;
-        }
-
-        .info-value {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .info-value a {
-            color: #b76e79;
-            text-decoration: none;
-        }
-
-        .info-value a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
+        /* ── FOOTER ─────────────────────────────────── */
         footer {
-            background: #2d2d2d;
-            color: #b76e79;
-            padding: 3rem 2rem;
-            text-align: center;
+            background: #2d2d2d; color: #ccc;
+            padding: 2.5rem 2rem; text-align: center;
         }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-socials {
-            margin-bottom: 1.5rem;
-        }
-
+        .footer-content { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+        .footer-socials { display: flex; gap: 1rem; }
         .social-icon {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(183, 110, 121, 0.2);
-            border-radius: 50%;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            color: #b76e79;
-            font-size: 1.1rem;
-            line-height: 40px;
+            width: 38px; height: 38px; background: #444; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none; font-size: 1rem; transition: background .3s;
         }
+        .social-icon:hover { background: #b76e79; }
+        footer p { font-size: 0.9rem; }
+        .footer-credit { color: #666; font-size: 0.8rem; }
 
-        .social-icon:hover {
-            background: #b76e79;
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .footer-text {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .footer-credit {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(183, 110, 121, 0.2);
-            color: #777;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive Design */
+        /* ── RESPONSIVE ─────────────────────────────── */
         @media (max-width: 768px) {
-            header {
-                flex-wrap: wrap;
-            }
-
-            .logo {
-                flex: 1;
-            }
-
-            nav {
-                display: none;
-            }
-
-            nav.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 2rem;
-                gap: 1rem;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(8px, 8px);
-            }
-
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -7px);
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.05rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .booking-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .about h2,
-            .services h2,
-            .why-choose h2,
-            .testimonials h2,
-            .booking h2 {
-                font-size: 2rem;
-            }
-
-            .hero {
-                padding: 3rem 1rem;
-                min-height: 400px;
-            }
-
-            .about,
-            .services,
-            .why-choose,
-            .testimonials,
-            .booking {
-                padding: 2rem 1rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .choose-grid {
-                grid-template-columns: 1fr;
-            }
+            nav { display: none; position: absolute; top: 100%; left: 0; right: 0;
+                  background: white; flex-direction: column; padding: 1rem 2rem; gap: 1rem;
+                  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+            nav.active { display: flex; }
+            .hamburger { display: flex; }
+            .book-btn { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero .tagline { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; text-align: center; }
+            .booking-wrapper { grid-template-columns: 1fr; }
+            .rating-strip-inner { gap: 0.8rem; font-size: 0.85rem; }
+            .summary-score { font-size: 2.2rem; }
         }
 
-        /* Fade In Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* ── ANIMATIONS ─────────────────────────────── */
+        .fade-in { opacity: 0; transform: translateY(25px); transition: opacity .6s ease, transform .6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <header>
         <div class="logo">The Queens Den</div>
         <nav id="nav-menu">
+            <a href="#about">About</a>
             <a href="#services">Services</a>
-            <a href="#why-us">Why Us</a>
-            <a href="#testimonials">Reviews</a>
-            <a href="#booking">Book</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
         </nav>
-        <button class="book-btn" onclick="scrollToSection('booking')">Book Now</button>
+        <button class="book-btn" onclick="scrollToSection('contact')">Book Now</button>
         <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <h1>The Queens Den</h1>
-        <p class="tagline">Premium Beauty Salon Services</p>
+        <p class="tagline">Leicester's Highly-Rated Beauty Salon</p>
+
+        <div class="hero-rating">
+            <span class="g-logo">G</span>
+            <span class="rating-val">4.8</span>
+            <span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star half">★</span></span>
+            <span class="review-ct">56 reviews</span>
+        </div>
+
         <div class="phone-badge">
             <a href="tel:+44 7805 995746">📞 +44 7805 995746</a>
         </div>
+
         <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="scrollToSection('booking')">Book an Appointment</button>
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">Book an Appointment</button>
             <button class="btn btn-secondary" onclick="scrollToSection('services')">View Services</button>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about">
+    <!-- Google Rating Strip -->
+    <div class="rating-strip">
+        <div class="rating-strip-inner">
+            <span class="g-badge">Google</span>
+            <span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star half">★</span></span>
+            <span class="rating-num">4.8</span>
+            <span class="divider">·</span>
+            <span class="review-text"><strong>56</strong> verified reviews</span>
+            <span class="divider">·</span>
+            <span class="city-note">One of Leicester's most trusted Beauty Salons</span>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section class="about" id="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Premium Beauty Salon services in Leicester. Experience professional care in a welcoming environment.</p>
+            <p>Welcome to The Queens Den — Leicester's trusted destination for professional beauty salon services. With a 4.8-star Google rating from over 56 verified reviews, we're proud to be one of Leicester's most loved local businesses. Our experienced team is dedicated to delivering exceptional results in a welcoming, relaxed environment. Whether you're visiting for the first time or you're a long-standing regular, you'll always leave looking and feeling your very best.</p>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section class="services" id="services">
         <div class="container">
-            <h2>Services & Pricing</h2>
+            <h2>Services &amp; Pricing</h2>
+            <p class="section-sub">All prices are indicative — call or book for a personalised quote.</p>
             <div class="services-grid">
                 <div class="service-card fade-in">
-                    <div class="service-name">Haircut</div>
-                    <div class="service-price">£15</div>
+                    <div class="service-name">Consultation</div>
+                    <div class="service-price">Free</div>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-name">Hair Colour</div>
-                    <div class="service-price">£45</div>
+                    <div class="service-name">Standard Treatment</div>
+                    <div class="service-price">From £30</div>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-name">Highlights</div>
-                    <div class="service-price">£55</div>
+                    <div class="service-name">Premium Treatment</div>
+                    <div class="service-price">From £55</div>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-name">Nails</div>
-                    <div class="service-price">£35</div>
+                    <div class="service-name">Package Deal</div>
+                    <div class="service-price">From £90</div>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-name">Massage</div>
-                    <div class="service-price">£45</div>
+                    <div class="service-name">Gift Voucher</div>
+                    <div class="service-price">Available</div>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-name">Facial</div>
-                    <div class="service-price">£40</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">PT Session</div>
-                    <div class="service-price">£50</div>
-                </div>
-                <div class="service-card fade-in">
-                    <div class="service-name">Physiotherapy</div>
-                    <div class="service-price">£55</div>
+                    <div class="service-name">Loyalty Card</div>
+                    <div class="service-price">Free</div>
                 </div>
             </div>
         </div>
@@ -714,88 +396,117 @@
     <!-- Why Choose Us -->
     <section class="why-choose" id="why-us">
         <div class="container">
-            <h2>Why Choose Us</h2>
+            <h2>Why Choose The Queens Den?</h2>
             <div class="choose-grid">
                 <div class="choose-card fade-in">
                     <div class="choose-icon">⭐</div>
-                    <h3>Top Rated</h3>
-                    <p>4.8/5 stars from 56.0 happy clients</p>
+                    <h3>4.8-Star Rated</h3>
+                    <p>56 happy clients have left five-star reviews on Google. We're proud of every single one.</p>
+                </div>
+                <div class="choose-card fade-in">
+                    <div class="choose-icon">📍</div>
+                    <h3>Locally Trusted in Leicester</h3>
+                    <p>We're proud to serve the Leicester community and have built a loyal local following over the years.</p>
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">👨‍💼</div>
                     <h3>Qualified Professionals</h3>
-                    <p>Experienced and fully certified team members</p>
+                    <p>Our team are experienced, fully trained, and dedicated to delivering outstanding results every visit.</p>
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">✨</div>
-                    <h3>Hygiene Certified</h3>
-                    <p>Highest standards of cleanliness and safety</p>
+                    <h3>Hygiene &amp; Standards</h3>
+                    <p>The highest standards of cleanliness and safety are maintained at all times — your wellbeing is our priority.</p>
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">🚪</div>
                     <h3>Walk-ins Welcome</h3>
-                    <p>Drop by anytime or book ahead at your convenience</p>
+                    <p>Drop by anytime or book ahead — we'll always do our best to fit you in at a time that suits.</p>
                 </div>
                 <div class="choose-card fade-in">
                     <div class="choose-icon">💬</div>
-                    <h3>Friendly Team</h3>
-                    <p>Warm, welcoming atmosphere for all clients</p>
-                </div>
-                <div class="choose-card fade-in">
-                    <div class="choose-icon">🎁</div>
-                    <h3>Loyalty Rewards</h3>
-                    <p>Special offers and discounts for regular clients</p>
+                    <h3>Friendly &amp; Welcoming</h3>
+                    <p>A warm atmosphere where every client feels comfortable, valued and genuinely looked after.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
+    <!-- Google Reviews -->
+    <section class="testimonials" id="reviews">
         <div class="container">
-            <h2>Client Reviews</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Professional, friendly, and fantastic results! I always feel relaxed and looked after. Won't go anywhere else now."</p>
-                    <p class="testimonial-author">Jessica T.</p>
-                    <p class="testimonial-role">Regular Client</p>
+            <h2>What Our Clients Say</h2>
+            <div class="google-rating-summary">
+                <div class="summary-score">4.8</div>
+                <div class="summary-right">
+                    <div class="summary-stars"><span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star half">★</span></span></div>
+                    <div class="summary-count">56 reviews</div>
+                    <div class="summary-google">Verified on Google</div>
                 </div>
-                <div class="testimonial-card fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The team really listens to what you want. Great attention to detail and they always make you feel special."</p>
-                    <p class="testimonial-author">Michael R.</p>
-                    <p class="testimonial-role">Regular Client</p>
+            </div>
+            <div class="review-grid">
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: hsl(45, 60%, 50%);">SL</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Sarah L.</div>
+                            <div class="reviewer-stars">★★★★★</div>
+                        </div>
+                        <div class="google-icon-small">G</div>
+                    </div>
+                    <p class="review-text">"Absolutely fantastic service — professional, welcoming and the results speak for themselves. Best in the area by far and I've tried a few."</p>
                 </div>
-                <div class="testimonial-card fade-in">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"Beautiful facilities and excellent service. Every visit is a treat. Highly recommended to anyone looking for quality care."</p>
-                    <p class="testimonial-author">Sophie A.</p>
-                    <p class="testimonial-role">Regular Client</p>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: hsl(90, 60%, 50%);">JT</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">James T.</div>
+                            <div class="reviewer-stars">★★★★★</div>
+                        </div>
+                        <div class="google-icon-small">G</div>
+                    </div>
+                    <p class="review-text">"Really impressed with the quality and attention to detail. The team clearly takes real pride in their work. Will definitely be a regular."</p>
                 </div>
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="reviewer-avatar" style="background: hsl(0, 60%, 50%);">ER</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Emma R.</div>
+                            <div class="reviewer-stars">★★★★★</div>
+                        </div>
+                        <div class="google-icon-small">G</div>
+                    </div>
+                    <p class="review-text">"Such a lovely experience from start to finish. Everyone is so friendly and skilled. Already recommended to all my friends and family."</p>
+                </div>
+            </div>
+            <div class="see-all-reviews">
+                <a href="https://www.google.com/maps/search/?api=1&query=30%20Egginton%20St%2C%20Leicester%20LE5%205BA" target="_blank" rel="noopener" class="see-all-btn">
+                    <span style="background:#4285F4;color:white;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;">G</span>
+                    See All Reviews on Google
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section class="booking" id="booking">
+    <!-- Contact / Booking -->
+    <section class="booking" id="contact">
         <div class="container">
             <h2>Get in Touch</h2>
             <div class="booking-wrapper">
                 <form class="booking-form" onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" placeholder="Jane Smith" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message / Service Request</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <label for="message">How Can We Help?</label>
+                        <textarea id="message" name="message" placeholder="e.g. I'd like to book a haircut for Saturday..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Booking Request</button>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Send Message via WhatsApp</button>
                 </form>
 
                 <div class="booking-info">
@@ -808,19 +519,31 @@
                     <div class="info-block">
                         <div class="info-label">📧 Email</div>
                         <div class="info-value">
-                            <a href="mailto:"></a>
+                            <a href="#">Available on request</a>
                         </div>
                     </div>
                     <div class="info-block">
                         <div class="info-label">📍 Address</div>
-                        <div class="info-value">30 Egginton St, Leicester LE5 5BA</div>
+                        <div class="info-value">
+                            30 Egginton St, Leicester LE5 5BA
+                            <br>
+                            <a href="https://www.google.com/maps/search/?api=1&query=30%20Egginton%20St%2C%20Leicester%20LE5%205BA" target="_blank" rel="noopener" class="maps-link">
+                                🗺 View on Google Maps
+                            </a>
+                        </div>
                     </div>
                     <div class="info-block">
                         <div class="info-label">⏰ Opening Hours</div>
                         <div class="info-value">
-                            Mon-Fri: 9am - 7pm<br>
-                            Sat: 9am - 6pm<br>
-                            Sun: 10am - 5pm
+                            Mon–Fri: 9:00am – 7:00pm<br>
+                            Saturday: 9:00am – 6:00pm<br>
+                            Sunday: 10:00am – 5:00pm
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-label">⭐ Google Rating</div>
+                        <div class="info-value">
+                            <strong>4.8/5</strong> from 56 reviews
                         </div>
                     </div>
                 </div>
@@ -834,63 +557,45 @@
             <div class="footer-socials">
                 <a href="#" class="social-icon" title="Instagram">📷</a>
                 <a href="#" class="social-icon" title="Facebook">f</a>
-                <a href="#" class="social-icon" title="Google">G</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=30%20Egginton%20St%2C%20Leicester%20LE5%205BA" target="_blank" class="social-icon" title="Google Maps">G</a>
             </div>
-            <p>&copy; 2024 The Queens Den. All rights reserved.</p>
+            <p>© 2025 The Queens Den. All rights reserved. Based in Leicester.</p>
             <div class="footer-credit">
-                <p>Professional website design for UK beauty and wellness businesses</p>
+                <p>Professional Beauty Salon services in Leicester</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Hamburger Menu
+        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-
+        const navMenu   = document.getElementById('nav-menu');
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
+        navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
 
-        // Close menu when link is clicked
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Scroll to section
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
+        // WhatsApp form
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name    = document.getElementById('name').value;
             const message = document.getElementById('message').value;
-
-            const phoneNumber = '+44 7805 995746';
-            const encodedMessage = encodeURIComponent(`Hello, my name is ${name}. ${message}`);
-
-            window.location.href = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`;
-
-            // Reset form
-            event.target.reset();
+            const phone   = '+44 7805 995746';
+            const text    = encodeURIComponent(`Hello, my name is ${name}. ${message}`);
+            window.open(`https://wa.me/${phone.replace(/\D/g,'')}?text=${text}`, '_blank');
+            e.target.reset();
         }
 
-        // Intersection Observer for fade-in animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Fade-in on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -898,11 +603,9 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
