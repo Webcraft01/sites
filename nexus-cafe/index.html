@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus cafe - Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2d2d2d;
+            background: #faf8f0;
+        }
+
+        /* Header and Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: #1a1a1a;
+            color: white;
+            padding: 1.2rem 2rem;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .book-btn {
+            background: #d4af37;
+            color: #1a1a1a;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background: #e6c158;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(212, 175, 55, 0.05) 0px,
+                rgba(212, 175, 55, 0.05) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-in;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            max-width: 700px;
+        }
+
+        .opening-hours-badge {
+            background: rgba(212, 175, 55, 0.2);
+            color: #d4af37;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #e6c158;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .story h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .story p {
+            font-size: 1.05rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 4rem 2rem;
+        }
+
+        .menu h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-category {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .menu-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 1rem;
+        }
+
+        .menu-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .menu-item-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+        }
+
+        .menu-item-desc {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .menu-item-price {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .gallery h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #d4af37 0%, #c99d2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 4rem 2rem;
+        }
+
+        .reviews h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .review-rating {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 0.3rem;
+        }
+
+        .review-count {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .review-stars {
+            color: #ffc107;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .review-text {
+            color: #555;
+            margin-bottom: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        /* Find Us Section */
+        .find-us {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .find-us h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .find-us-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .find-us-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+        }
+
+        .info-item h3 {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .info-item p {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .info-item a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(135deg, #d4af37 0%, #c99d2a 100%);
+            height: 400px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #d4af37;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-socials {
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: #d4af37;
+            font-size: 1.2rem;
+            line-height: 40px;
+        }
+
+        .social-icon:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .footer-credit {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: #1a1a1a;
+                padding: 2rem;
+                gap: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.05rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .find-us-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .map-placeholder {
+                height: 250px;
+            }
+
+            .story h2,
+            .menu h2,
+            .gallery h2,
+            .reviews h2,
+            .find-us h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+                min-height: 400px;
+            }
+
+            .story,
+            .menu,
+            .gallery,
+            .reviews,
+            .find-us {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="header-content">
+            <div class="logo">Nexus cafe</div>
+            <nav id="nav-menu">
+                <a href="#menu">Menu</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#find-us">Find Us</a>
+            </nav>
+        </div>
+        <button class="book-btn" onclick="scrollToSection('find-us')">Book a Table</button>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nexus cafe</h1>
+            <p class="tagline">Authentic Cafe in 38 Meriden St, Birmingham B5 5LS</p>
+            <div class="opening-hours-badge">⏰ Open: Tue-Thu 11am-10pm, Fri-Sat 11am-11pm, Sun 12pm-9pm</div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('menu')">View Menu</button>
+                <button class="btn btn-secondary" onclick="scrollToSection('find-us')">Reserve Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>Discover exceptional Cafe in Birmingham. We're committed to providing outstanding service and delicious offerings.</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2>Menu Highlights</h2>
+            <div class="menu-grid">
+                <div class="menu-category fade-in">
+                    <h3>Starters</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Bread & Olives</div>
+                        <div class="menu-item-desc">Warm artisan bread with olive oil and herbs</div>
+                        <div class="menu-item-price">£4.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Soup of the Day</div>
+                        <div class="menu-item-desc">Chef's seasonal creation, ask for details</div>
+                        <div class="menu-item-price">£6.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Bruschetta Trio</div>
+                        <div class="menu-item-desc">Tomato, garlic & basil selection</div>
+                        <div class="menu-item-price">£7.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Cheeseboard</div>
+                        <div class="menu-item-desc">Selection of British & continental cheeses</div>
+                        <div class="menu-item-price">£12.00</div>
+                    </div>
+                </div>
+
+                <div class="menu-category fade-in">
+                    <h3>Mains</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Fish & Chips</div>
+                        <div class="menu-item-desc">Beer-battered with mushy peas & tartare sauce</div>
+                        <div class="menu-item-price">£15.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Grilled Salmon</div>
+                        <div class="menu-item-desc">Served with seasonal vegetables & herb butter</div>
+                        <div class="menu-item-price">£18.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Beef Stew</div>
+                        <div class="menu-item-desc">Slow-cooked with root vegetables & dumplings</div>
+                        <div class="menu-item-price">£16.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Vegetable Risotto</div>
+                        <div class="menu-item-desc">Seasonal vegetables with truffle oil</div>
+                        <div class="menu-item-price">£14.00</div>
+                    </div>
+                </div>
+
+                <div class="menu-category fade-in">
+                    <h3>Desserts</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Chocolate Torte</div>
+                        <div class="menu-item-desc">Rich dark chocolate with raspberry coulis</div>
+                        <div class="menu-item-price">£7.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Sticky Toffee Pudding</div>
+                        <div class="menu-item-desc">Warm with vanilla ice cream</div>
+                        <div class="menu-item-price">£7.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Lemon Posset</div>
+                        <div class="menu-item-desc">Traditional cream dessert with shortbread</div>
+                        <div class="menu-item-price">£6.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-name">Seasonal Sorbet</div>
+                        <div class="menu-item-desc">Refreshing fruity selection</div>
+                        <div class="menu-item-price">£5.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">Photo Coming Soon</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">Photo Coming Soon</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">Photo Coming Soon</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">Photo Coming Soon</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">Photo Coming Soon</div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">Photo Coming Soon</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2>Guest Reviews</h2>
+            <div class="review-rating">
+                <div class="stars">★★★★★</div>
+                <div class="rating-text">4.8/5 Stars</div>
+                <div class="review-count">Based on 56.0 reviews</div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Exceptional food and service. The atmosphere is warm and welcoming. We'll definitely be back!"</p>
+                    <p class="review-author">Emma & James</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best meal we've had in ages. Fresh ingredients, perfectly cooked, and the staff were so attentive."</p>
+                    <p class="review-author">Sarah M.</p>
+                </div>
+                <div class="review-card fade-in">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Authentic flavours and excellent value. The desserts are particularly special. Highly recommended!"</p>
+                    <p class="review-author">David P.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find Us Section -->
+    <section class="find-us" id="find-us">
+        <div class="container">
+            <h2>Find Us</h2>
+            <div class="find-us-wrapper">
+                <div class="find-us-info">
+                    <div class="info-item">
+                        <h3>📍 Location</h3>
+                        <p>38 Meriden St, Birmingham B5 5LS</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+44 7742 149976">+44 7742 149976</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:"></a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3>⏰ Hours</h3>
+                        <p>
+                            Tue-Thu: 11am - 10pm<br>
+                            Fri-Sat: 11am - 11pm<br>
+                            Sun: 12pm - 9pm<br>
+                            Closed Mondays
+                        </p>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    🗺️ Map Coming Soon
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-socials">
+                <a href="#" class="social-icon" title="Instagram">f</a>
+                <a href="#" class="social-icon" title="Facebook">📷</a>
+                <a href="#" class="social-icon" title="TripAdvisor">✓</a>
+            </div>
+            <p>&copy; 2024 Nexus cafe. All rights reserved.</p>
+            <div class="footer-credit">
+                <p>Professional website design for UK food businesses</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Intersection Observer for fade-in animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
