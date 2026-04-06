@@ -121,7 +121,10 @@
         .about { padding:5rem 2rem; background:#161616; }
         .about h2 { font-family:'Oswald',sans-serif; font-size:2.2rem; text-align:center; margin-bottom:0.4rem; color:#fff; font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
         .about .section-rule { width:60px; height:3px; background:#C9A84C; margin:0 auto 2rem; }
-        .about p { font-size:1.05rem; max-width:800px; margin:0 auto; color:#aaa; line-height:1.85; text-align:center; }
+        .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+        .about-text { }
+        .about-image { height:350px; background:center/cover no-repeat; border-left:4px solid #C9A84C; }
+        .about p { font-size:1.05rem; color:#aaa; line-height:1.85; }
 
         /* ── GALLERY ─────────────────────────────────── */
         .gallery { padding:0; }
@@ -223,6 +226,8 @@
             .gallery-grid { height:180px; }
             .service-card { flex-direction:column; align-items:flex-start; gap:0.3rem; }
             .gold-strip-inner { gap:0.8rem; font-size:0.8rem; }
+            .about-inner { grid-template-columns:1fr; }
+            .about-image { border-left:none; border-top:4px solid #C9A84C; }
         }
 
         /* ── ANIMATIONS ──────────────────────────────── */
@@ -274,22 +279,29 @@
         <div class="gold-strip-inner">
             <div class="strip-item"><span class="g-badge-dark">G</span> Google Verified</div>
             <span class="strip-divider">|</span>
-            <div class="strip-item"><span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></span> 5.0 Stars</div>
+            <div class="strip-item">⭐ 5.0 Stars</div>
             <span class="strip-divider">|</span>
             <div class="strip-item">11 Reviews</div>
             <span class="strip-divider">|</span>
-            <div class="strip-item">&#128205; Glasgow</div>
+            <div class="strip-item">📍 Glasgow</div>
             <span class="strip-divider">|</span>
-            <div class="strip-item">&#9989; Walk-ins Welcome</div>
+            <div class="strip-item">🕐 Walk-ins Welcome</div>
+            <span class="strip-divider">|</span>
+            <div class="strip-item">💳 Card & Cash</div>
         </div>
     </div>
 
     <!-- About -->
     <section class="about" id="about">
         <div class="container">
-            <h2>About Us</h2>
-            <div class="section-rule"></div>
-            <p>Welcome to KING BARBER — Glasgow's go-to destination for professional barber shop services. Rated 5.0 stars from 11 verified Google reviews, we've built a reputation for results that speak for themselves. Our expert team delivers quality, consistency and the kind of service that keeps clients coming back. Whether you're a first-timer or a regular, you're in the best hands in Glasgow.</p>
+            <div class="about-inner">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <div class="section-rule"></div>
+                    <p>Welcome to KING BARBER — Glasgow's go-to destination for professional barber shop services. Rated 5.0 stars from 11 verified Google reviews, we've built a reputation for results that speak for themselves. Our expert team delivers quality, consistency and the kind of service that keeps clients coming back. Whether you're a first-timer or a regular, you're in the best hands in Glasgow.</p>
+                </div>
+                <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80')"></div>
+            </div>
         </div>
     </section>
 
@@ -329,34 +341,34 @@
             <div class="section-rule"></div>
             <div class="choose-grid">
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#11088;</div>
+                    <div class="choose-icon">⭐</div>
                     <h3>5.0-Star Rated</h3>
-                    <p>11 five-star reviews on Google. Every single one earned through quality and care.</p>
+                    <p>11 five-star Google reviews, all earned through sharp cuts and excellent service.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128205;</div>
-                    <h3>Glasgow Local</h3>
-                    <p>Proudly serving Glasgow and the surrounding area. A local name you can trust.</p>
+                    <div class="choose-icon">📍</div>
+                    <h3>Glasgow's Favourite Barber</h3>
+                    <p>A trusted local name, serving the Glasgow community with pride.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#9999;&#65039;</div>
-                    <h3>Expert Precision</h3>
-                    <p>Years of hands-on experience. Every client gets our full attention and best work — no exceptions.</p>
+                    <div class="choose-icon">✂️</div>
+                    <h3>Expert Fade & Styling</h3>
+                    <p>From skin fades to classic cuts, tapers to beard trims — our barbers deliver precision every single time.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128172;</div>
+                    <div class="choose-icon">🪒</div>
+                    <h3>Hot Towel Shave Available</h3>
+                    <p>Treat yourself to the full traditional barber experience with our signature hot towel shave.</p>
+                </div>
+                <div class="choose-card fade-in">
+                    <div class="choose-icon">🕐</div>
                     <h3>Walk-ins Welcome</h3>
-                    <p>No appointment needed — just walk in. Or book ahead if you prefer. We'll always make time for you.</p>
+                    <p>No appointment needed — just turn up. Or book ahead online if you prefer to skip the wait.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#9989;</div>
-                    <h3>Competitive Prices</h3>
-                    <p>Premium quality at fair prices. No hidden charges, no surprises — just great value every visit.</p>
-                </div>
-                <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128274;</div>
-                    <h3>Trusted by Hundreds</h3>
-                    <p>11 verified reviews don't lie. Join a growing community of satisfied regulars.</p>
+                    <div class="choose-icon">👶</div>
+                    <h3>Kids & Adults</h3>
+                    <p>A welcoming space for all ages. Bring the whole family — everyone leaves looking sharp.</p>
                 </div>
             </div>
         </div>

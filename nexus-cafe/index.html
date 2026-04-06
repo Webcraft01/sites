@@ -72,7 +72,10 @@
         /* ── ABOUT ───────────────────────────────────── */
         .about { padding:5rem 2rem; background:#fff; }
         .about h2 { font-family:'Playfair Display',serif; font-size:2.4rem; margin-bottom:1.5rem; color:#2c1810; text-align:center; }
-        .about p { font-size:1.05rem; max-width:820px; margin:0 auto; color:#6b4c3b; line-height:1.85; text-align:center; }
+        .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+        .about-text { }
+        .about-image { height:350px; background:center/cover no-repeat; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.12); }
+        .about p { font-size:1.05rem; color:#6b4c3b; line-height:1.85; }
 
         /* ── GALLERY ─────────────────────────────────── */
         .gallery { padding:0; }
@@ -169,6 +172,7 @@
             .booking-wrapper { grid-template-columns:1fr; }
             .gallery-grid { height:160px; }
             .service-card { flex-direction:column; align-items:flex-start; gap:0.3rem; }
+            .about-inner { grid-template-columns:1fr; }
         }
 
         /* ── ANIMATIONS ──────────────────────────────── */
@@ -231,8 +235,13 @@
     <!-- About -->
     <section class="about" id="about">
         <div class="container">
-            <h2>Our Story</h2>
-            <p>Welcome to Nexus cafe — Birmingham's favourite cafe. With a 4.8-star Google rating from 56 verified reviews, we've built a reputation for exceptional food, warm hospitality, and an atmosphere that keeps our guests coming back. We take real pride in sourcing quality ingredients and preparing every dish with care. From a quick lunch to a special occasion, we'd love to welcome you.</p>
+            <div class="about-inner">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Welcome to Nexus cafe — Birmingham's favourite cafe. With a 4.8-star Google rating from 56 verified reviews, we've built a reputation for exceptional food, warm hospitality, and an atmosphere that keeps our guests coming back. We take real pride in sourcing quality ingredients and preparing every dish with care. From a quick lunch to a special occasion, we'd love to welcome you.</p>
+                </div>
+                <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80')"></div>
+            </div>
         </div>
     </section>
 
@@ -270,34 +279,34 @@
             <h2>Why Nexus cafe?</h2>
             <div class="choose-grid">
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#11088;</div>
+                    <div class="choose-icon">⭐</div>
                     <h3>4.8-Star Rated</h3>
-                    <p>56 genuine Google reviews from happy diners. We're proud to be one of Birmingham's most trusted spots.</p>
+                    <p>56 five-star reviews from food lovers.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128104;&#8205;&#127859;</div>
-                    <h3>Passionate About Food</h3>
-                    <p>Every dish prepared with care, quality ingredients, and a genuine love of great food. You can taste the difference.</p>
+                    <div class="choose-icon">📍</div>
+                    <h3>Birmingham Favourite</h3>
+                    <p>The go-to spot in Birmingham for quality and atmosphere.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128205;</div>
-                    <h3>Proudly Local in Birmingham</h3>
-                    <p>We're a local business at heart, serving our Birmingham community with warmth and pride since day one.</p>
+                    <div class="choose-icon">🍽️</div>
+                    <h3>Quality Ingredients</h3>
+                    <p>We source the finest ingredients to create consistently exceptional dishes.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#127807;</div>
-                    <h3>Fresh Ingredients</h3>
-                    <p>Quality sourcing and careful preparation — no shortcuts, ever. Everything is made with the attention it deserves.</p>
+                    <div class="choose-icon">👨‍🍳</div>
+                    <h3>Passionate Chefs</h3>
+                    <p>Our team cares deeply about every plate that leaves the kitchen.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128172;</div>
-                    <h3>Warm Hospitality</h3>
-                    <p>From the moment you arrive, you're a guest &mdash; not just a customer. Friendly service is at the heart of everything we do.</p>
+                    <div class="choose-icon">🕐</div>
+                    <h3>Convenient Hours</h3>
+                    <p>Open when you need us, with flexible seating and service options.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#127881;</div>
-                    <h3>Every Occasion</h3>
-                    <p>Quick lunch, family dinner, or a special celebration &mdash; we'll make your visit one to remember.</p>
+                    <div class="choose-icon">🎉</div>
+                    <h3>Events Welcome</h3>
+                    <p>Perfect for celebrations, group bookings, and special occasions.</p>
                 </div>
             </div>
         </div>

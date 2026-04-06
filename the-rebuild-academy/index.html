@@ -60,7 +60,7 @@
         .hero {
             min-height: 100vh;
             background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85) 100%),
-                        url('https://images.unsplash.com/photo-1571019613853-71acb372e6d8?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
             text-align: center; padding: 6rem 2rem 4rem;
@@ -121,7 +121,10 @@
         .about { padding:5rem 2rem; background:#161616; }
         .about h2 { font-family:'Oswald',sans-serif; font-size:2.2rem; text-align:center; margin-bottom:0.4rem; color:#fff; font-weight:600; text-transform:uppercase; letter-spacing:.05em; }
         .about .section-rule { width:60px; height:3px; background:#C9A84C; margin:0 auto 2rem; }
-        .about p { font-size:1.05rem; max-width:800px; margin:0 auto; color:#aaa; line-height:1.85; text-align:center; }
+        .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+        .about-text { }
+        .about-image { height:350px; background:center/cover no-repeat; border-left:4px solid #C9A84C; }
+        .about p { font-size:1.05rem; color:#aaa; line-height:1.85; }
 
         /* ── GALLERY ─────────────────────────────────── */
         .gallery { padding:0; }
@@ -223,6 +226,8 @@
             .gallery-grid { height:180px; }
             .service-card { flex-direction:column; align-items:flex-start; gap:0.3rem; }
             .gold-strip-inner { gap:0.8rem; font-size:0.8rem; }
+            .about-inner { grid-template-columns:1fr; }
+            .about-image { border-left:none; border-top:4px solid #C9A84C; }
         }
 
         /* ── ANIMATIONS ──────────────────────────────── */
@@ -274,31 +279,38 @@
         <div class="gold-strip-inner">
             <div class="strip-item"><span class="g-badge-dark">G</span> Google Verified</div>
             <span class="strip-divider">|</span>
-            <div class="strip-item"><span class="stars-display"><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span><span class="star full">★</span></span> 5.0 Stars</div>
+            <div class="strip-item">⭐ 5.0 Stars</div>
             <span class="strip-divider">|</span>
             <div class="strip-item">8 Reviews</div>
             <span class="strip-divider">|</span>
-            <div class="strip-item">&#128205; Newcastle upon Tyne</div>
+            <div class="strip-item">📍 Newcastle upon Tyne</div>
             <span class="strip-divider">|</span>
-            <div class="strip-item">&#9989; Walk-ins Welcome</div>
+            <div class="strip-item">🎯 Free Consultation</div>
+            <span class="strip-divider">|</span>
+            <div class="strip-item">📅 Flexible Scheduling</div>
         </div>
     </div>
 
     <!-- About -->
     <section class="about" id="about">
         <div class="container">
-            <h2>About Us</h2>
-            <div class="section-rule"></div>
-            <p>Welcome to The Rebuild Academy — Newcastle upon Tyne's go-to destination for professional personal trainer services. Rated 5.0 stars from 8 verified Google reviews, we've built a reputation for results that speak for themselves. Our expert team delivers quality, consistency and the kind of service that keeps clients coming back. Whether you're a first-timer or a regular, you're in the best hands in Newcastle upon Tyne.</p>
+            <div class="about-inner">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <div class="section-rule"></div>
+                    <p>Welcome to The Rebuild Academy — Newcastle upon Tyne's go-to destination for professional personal trainer services. Rated 5.0 stars from 8 verified Google reviews, we've built a reputation for results that speak for themselves. Our expert team delivers quality, consistency and the kind of service that keeps clients coming back. Whether you're a first-timer or a regular, you're in the best hands in Newcastle upon Tyne.</p>
+                </div>
+                <div class="about-image" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80')"></div>
+            </div>
         </div>
     </section>
 
     <!-- Gallery -->
     <div class="gallery">
         <div class="gallery-grid">
-            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1571019613853-71acb372e6d8?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
-            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1526506118085-01d73a4cf0e8?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
             <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
+            <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1540497077091-a4de2d09d07e?auto=format&fit=crop&w=800&q=80')" role="img" aria-label="Gallery photo"></div>
         </div>
         <div style="text-align:center;padding:10px 20px;background:rgba(0,0,0,0.06);font-size:0.8rem;color:#888;letter-spacing:0.03em;">
             📸 <em>Example imagery shown — your real photos will be added when you claim this site</em>
@@ -329,34 +341,34 @@
             <div class="section-rule"></div>
             <div class="choose-grid">
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#11088;</div>
+                    <div class="choose-icon">🏆</div>
                     <h3>5.0-Star Rated</h3>
-                    <p>8 five-star reviews on Google. Every single one earned through quality and care.</p>
+                    <p>8 verified Google reviews from real clients who've seen real results.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128205;</div>
-                    <h3>Newcastle upon Tyne Local</h3>
-                    <p>Proudly serving Newcastle upon Tyne and the surrounding area. A local name you can trust.</p>
+                    <div class="choose-icon">📍</div>
+                    <h3>Based in Newcastle upon Tyne</h3>
+                    <p>Training clients across Newcastle upon Tyne and surrounding areas. Flexible locations to suit you.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#9999;&#65039;</div>
-                    <h3>Expert Precision</h3>
-                    <p>Years of hands-on experience. Every client gets our full attention and best work — no exceptions.</p>
+                    <div class="choose-icon">💪</div>
+                    <h3>Results-Driven Training</h3>
+                    <p>Every programme is built around your specific goals — weight loss, muscle gain, performance or general fitness.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128172;</div>
-                    <h3>Walk-ins Welcome</h3>
-                    <p>No appointment needed — just walk in. Or book ahead if you prefer. We'll always make time for you.</p>
+                    <div class="choose-icon">🥗</div>
+                    <h3>Nutrition Guidance Included</h3>
+                    <p>Training without nutrition is only half the picture. Get a complete plan for faster, lasting results.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#9989;</div>
-                    <h3>Competitive Prices</h3>
-                    <p>Premium quality at fair prices. No hidden charges, no surprises — just great value every visit.</p>
+                    <div class="choose-icon">📱</div>
+                    <h3>Online & In-Person</h3>
+                    <p>Whether you prefer face-to-face sessions or remote coaching, flexible options are available to fit your lifestyle.</p>
                 </div>
                 <div class="choose-card fade-in">
-                    <div class="choose-icon">&#128274;</div>
-                    <h3>Trusted by Hundreds</h3>
-                    <p>8 verified reviews don't lie. Join a growing community of satisfied regulars.</p>
+                    <div class="choose-icon">🎯</div>
+                    <h3>Free Consultation</h3>
+                    <p>Start with a no-obligation consultation to discuss your goals and find the right programme for you.</p>
                 </div>
             </div>
         </div>
